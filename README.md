@@ -31,7 +31,8 @@
 
   ### Quick Deployment Options
 
-  - **DigitalOcean App Platform**: Easiest option with automatic CI/CD (~10 minutes, $5/month)
+  - **Vercel (Recommended)**: Ultra-fast deployment with global CDN and automatic CI/CD (~5 minutes, Free tier available)
+  - **DigitalOcean App Platform**: Easy deployment with automatic CI/CD (~10 minutes, $5/month)
   - **DigitalOcean Droplet**: Full control with Nginx server (~20 minutes, $6/month)
   - **SharedHosting (cPanel)**: Budget-friendly option with familiar interface (~10 minutes, $3-10/month)
 

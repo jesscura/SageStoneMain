@@ -2,9 +2,34 @@
 
 Choose your deployment platform and follow the quick steps below. For detailed instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md).
 
-## 🚀 Option 1: DigitalOcean App Platform (Recommended for Beginners)
+## ⚡ Option 1: Vercel (Recommended)
 
-**Perfect for**: Automatic deployments, no server management, beginner-friendly
+**Perfect for**: Fastest deployment, automatic CI/CD, global CDN, free tier
+
+**Steps**:
+1. Go to [vercel.com](https://vercel.com) and sign up/login with GitHub
+2. Click "Add New..." → "Project"
+3. Import `jesscura/SageStone-Company` repository
+4. Vercel auto-detects Vite settings:
+   - Build Command: `npm run build`
+   - Output Directory: `build`
+5. Click "Deploy"
+6. Done! Your app will be live in 30-60 seconds 🎉
+
+**Cost**: FREE (Hobby tier) | **Time**: 5 minutes | **Difficulty**: ⭐☆☆☆☆
+
+**Benefits**:
+- ⚡ Lightning-fast global CDN
+- 🔄 Automatic deployments on git push
+- 🔍 Preview deployments for every PR
+- 🆓 Free custom domain with SSL
+- 📊 Built-in analytics
+
+---
+
+## 🚀 Option 2: DigitalOcean App Platform
+
+**Perfect for**: Automatic deployments, no server management
 
 **Steps**:
 1. Go to [DigitalOcean App Platform](https://cloud.digitalocean.com/apps)
@@ -19,7 +44,7 @@ Choose your deployment platform and follow the quick steps below. For detailed i
 
 ---
 
-## 🖥️ Option 2: DigitalOcean Droplet (Full Control)
+## 🖥️ Option 3: DigitalOcean Droplet (Full Control)
 
 **Perfect for**: More control, multiple apps, custom configurations
 
@@ -45,7 +70,7 @@ sudo bash deploy-digitalocean.sh
 
 ---
 
-## 🏠 Option 3: SharedHosting with cPanel (Most Affordable)
+## 🏠 Option 4: SharedHosting with cPanel (Most Affordable)
 
 **Perfect for**: Budget-conscious, familiar cPanel interface
 
@@ -93,10 +118,11 @@ After deploying:
 | Problem | Solution |
 |---------|----------|
 | Blank page | Check browser console (F12) for errors |
-| 404 on refresh | Ensure `.htaccess` is present (SharedHosting) |
+| 404 on refresh (SharedHosting) | Ensure `.htaccess` is present |
+| 404 on refresh (Vercel) | Check `vercel.json` routing configuration |
 | Build fails | Try `rm -rf node_modules && npm install` |
 | Images not loading | Verify all files were uploaded |
-| Slow loading | Enable compression in `.htaccess` |
+| Vercel build timeout | Check build logs, may need to optimize build |
 
 ---
 
@@ -110,12 +136,13 @@ After deploying:
 
 ## 💡 Pro Tips
 
-1. **DigitalOcean App Platform** is the easiest option - just connect and deploy
-2. **DigitalOcean Droplet** gives you more control and is great for multiple apps
-3. **SharedHosting** is the most affordable and works great for small projects
-4. Always test in development before deploying to production
-5. Keep your dependencies updated with `npm update`
-6. Enable automatic backups on your hosting platform
+1. **Vercel** is the fastest and easiest option with automatic deployments and free tier
+2. **DigitalOcean App Platform** is great for automatic CI/CD with paid hosting
+3. **DigitalOcean Droplet** gives you more control and is great for multiple apps
+4. **SharedHosting** is the most affordable and works great for small projects
+5. Always test in development before deploying to production
+6. Keep your dependencies updated with `npm update`
+7. Enable automatic backups on your hosting platform
 
 ---
 
@@ -123,12 +150,13 @@ After deploying:
 
 | Use Case | Recommended Platform | Why |
 |----------|---------------------|-----|
-| Personal project | SharedHosting | Most affordable |
-| Portfolio site | DigitalOcean App Platform | Professional URL, easy setup |
-| Client project | DigitalOcean Droplet | Full control, custom domain |
-| Learning deployment | DigitalOcean App Platform | Easiest to learn |
+| Personal project | Vercel | Free, fast, automatic deployments |
+| Portfolio site | Vercel | Professional, fast, free custom domain |
+| Client project | Vercel or DigitalOcean Droplet | Production-ready, scalable |
+| Learning deployment | Vercel | Easiest and fastest to learn |
 | Multiple apps | DigitalOcean Droplet | Cost-effective for multiple apps |
-| Tight budget | SharedHosting | Cheapest option |
+| Tight budget | Vercel (free) or SharedHosting | Free or very affordable |
+| Enterprise | DigitalOcean Droplet | Full control and customization |
 
 ---
 
