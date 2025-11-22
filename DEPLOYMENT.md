@@ -1,12 +1,13 @@
 # Deployment Guide for SageStone Inc
 
-This guide covers deploying the SageStone Inc React application to DigitalOcean and SharedHosting platforms.
+This guide covers deploying the SageStone Inc React application to Vercel, DigitalOcean, and SharedHosting platforms.
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
 - [Building the Application](#building-the-application)
+- [Vercel Deployment (Recommended)](#vercel-deployment-recommended)
 - [DigitalOcean Deployment](#digitalocean-deployment)
-  - [Option 1: DigitalOcean App Platform (Recommended)](#option-1-digitalocean-app-platform-recommended)
+  - [Option 1: DigitalOcean App Platform](#option-1-digitalocean-app-platform)
   - [Option 2: DigitalOcean Droplet with Nginx](#option-2-digitalocean-droplet-with-nginx)
 - [SharedHosting Deployment (cPanel)](#sharedhosting-deployment-cpanel)
 - [Environment Configuration](#environment-configuration)
@@ -42,9 +43,232 @@ The build output will be in the `build/` directory.
 
 ---
 
+## Vercel Deployment (Recommended)
+
+**Best for:** Ultra-fast deployment with automatic CI/CD, global CDN, serverless functions, and zero configuration. Perfect for React/Vite applications.
+
+### Why Vercel?
+- **Instant Deployments:** Push to Git and deploy automatically in seconds
+- **Global CDN:** Automatic edge caching for blazing-fast performance worldwide
+- **Zero Configuration:** Works out of the box with Vite and React
+- **Free Tier:** Generous free tier with custom domains and SSL
+- **Preview Deployments:** Automatic preview URLs for every pull request
+- **Easy Rollbacks:** One-click rollbacks to any previous deployment
+
+### Prerequisites for Vercel:
+- GitHub, GitLab, or Bitbucket account with repository access
+- Vercel account (free to create at [vercel.com](https://vercel.com))
+
+### Deployment Steps:
+
+#### Method 1: Import from Git (Recommended)
+
+1. **Sign Up/Login to Vercel**
+   - Go to [vercel.com](https://vercel.com)
+   - Click "Sign Up" or "Login"
+   - Connect your GitHub/GitLab/Bitbucket account
+
+2. **Import Your Repository**
+   - Click "Add New..." → "Project"
+   - Select "Import Git Repository"
+   - Find and select `jesscura/SageStone-Company`
+   - Click "Import"
+
+3. **Configure Project Settings**
+   
+   Vercel will auto-detect the Vite framework, but verify these settings:
+   
+   - **Framework Preset:** Vite
+   - **Root Directory:** `./` (leave as default)
+   - **Build Command:** `npm run build` (auto-detected)
+   - **Output Directory:** `build` (specified in vercel.json)
+   - **Install Command:** `npm install` (auto-detected)
+
+4. **Environment Variables** (if needed)
+   - Click "Environment Variables" to add any required variables
+   - Only variables prefixed with `VITE_` will be exposed to the client
+   - Example: `VITE_API_URL=https://api.example.com`
+
+5. **Deploy**
+   - Click "Deploy"
+   - Vercel will build and deploy your application
+   - Deployment typically completes in 30-60 seconds
+   - You'll receive a production URL like: `https://your-project.vercel.app`
+
+6. **Custom Domain** (Optional)
+   - Go to Project Settings → Domains
+   - Add your custom domain
+   - Follow DNS configuration instructions
+   - SSL certificate is automatically provisioned
+
+#### Method 2: Deploy with Vercel CLI
+
+1. **Install Vercel CLI**
+   ```bash
+   npm install -g vercel
+   ```
+
+2. **Login to Vercel**
+   ```bash
+   vercel login
+   ```
+
+3. **Deploy from Project Directory**
+   ```bash
+   cd /path/to/SageStone-Company
+   vercel
+   ```
+   
+   Follow the prompts:
+   - Set up and deploy? **Yes**
+   - Which scope? Select your account
+   - Link to existing project? **No** (for first deployment)
+   - What's your project's name? **sagestone-company** (or your preference)
+   - In which directory is your code located? **./** 
+   
+   Vercel will automatically detect the configuration and deploy.
+
+4. **Deploy to Production**
+   ```bash
+   vercel --prod
+   ```
+
+### Automatic Deployments
+
+Once connected to Git:
+- **Production Deployments:** Automatic on push to `main` branch
+- **Preview Deployments:** Automatic on push to any other branch
+- **PR Previews:** Each pull request gets a unique preview URL
+
+### Configuration Details
+
+The repository includes a `vercel.json` configuration file with optimized settings:
+
+```json
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": null,
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}
+```
+
+This configuration:
+- Routes all requests to `index.html` for React Router support
+- Sets optimal cache headers for static assets
+- Configures build and output directories
+
+### Managing Your Deployment
+
+**Via Vercel Dashboard:**
+- Monitor deployment status and logs
+- View analytics and performance metrics
+- Configure custom domains
+- Set environment variables
+- Enable preview deployments
+- Set up deployment protection
+
+**Via Vercel CLI:**
+```bash
+# View deployment logs
+vercel logs
+
+# List all deployments
+vercel ls
+
+# Remove a deployment
+vercel remove [deployment-url]
+
+# View project information
+vercel inspect
+```
+
+### Rolling Back
+
+If you need to rollback to a previous version:
+1. Go to Vercel Dashboard → Deployments
+2. Find the deployment you want to restore
+3. Click "..." → "Promote to Production"
+
+Or via CLI:
+```bash
+vercel rollback [deployment-url]
+```
+
+### Estimated Cost:
+- **Hobby (Free):** 
+  - Unlimited deployments
+  - 100GB bandwidth/month
+  - Custom domains with SSL
+  - Preview deployments
+  - Perfect for personal projects
+
+- **Pro ($20/month):**
+  - Unlimited bandwidth
+  - Advanced analytics
+  - Password protection
+  - Team collaboration
+  - Priority support
+
+### Performance Features
+
+Vercel automatically provides:
+- **Edge Network:** Global CDN with 100+ edge locations
+- **Automatic Compression:** Brotli and Gzip compression
+- **Image Optimization:** Automatic image optimization on demand
+- **HTTP/2 & HTTP/3:** Modern protocols for faster loading
+- **Smart CDN:** Intelligent caching and purging
+
+### Vercel-Specific Troubleshooting
+
+#### Build Fails
+- Check build logs in Vercel Dashboard
+- Verify `vercel.json` configuration
+- Ensure all dependencies are in `package.json`
+- Check Node.js version compatibility
+
+#### Routes Not Working
+- Verify `vercel.json` routing configuration
+- Check that `outputDirectory` matches build output
+- Ensure React Router is properly configured
+
+#### Environment Variables Not Working
+- Remember: Only `VITE_` prefixed variables are exposed to client
+- Redeploy after adding new environment variables
+- Check variable names for typos
+
+#### Custom Domain Issues
+- Verify DNS records are properly configured
+- Allow 24-48 hours for DNS propagation
+- Check SSL certificate provisioning status
+
+---
+
 ## DigitalOcean Deployment
 
-### Option 1: DigitalOcean App Platform (Recommended)
+### Option 1: DigitalOcean App Platform
 
 **Best for:** Quick deployment with automatic scaling, CI/CD, and minimal configuration.
 

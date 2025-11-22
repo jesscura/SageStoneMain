@@ -1,6 +1,6 @@
 # Deployment Checklist
 
-Use this checklist to ensure a smooth deployment of SageStone Inc to DigitalOcean or SharedHosting.
+Use this checklist to ensure a smooth deployment of SageStone Inc to Vercel, DigitalOcean, or SharedHosting.
 
 ## Pre-Deployment Checklist
 
@@ -10,6 +10,28 @@ Use this checklist to ensure a smooth deployment of SageStone Inc to DigitalOcea
 - [ ] **Update dependencies**: Run `npm audit` to check for vulnerabilities
 - [ ] **Test build output**: Verify the `build/` directory contains all necessary files
 - [ ] **Check .htaccess**: Ensure `.htaccess` file is present in `build/` directory (for SharedHosting)
+- [ ] **Check vercel.json**: Verify `vercel.json` is present (for Vercel)
+
+## Vercel Deployment (Recommended)
+
+- [ ] Create Vercel account or login at [vercel.com](https://vercel.com)
+- [ ] Connect GitHub repository
+- [ ] Import `jesscura/SageStone-Company` repository
+- [ ] Verify build settings (auto-detected):
+  - Build Command: `npm run build`
+  - Output Directory: `build`
+  - Install Command: `npm install`
+- [ ] Add environment variables (if needed, must start with `VITE_`)
+- [ ] Click "Deploy" button
+- [ ] Wait for deployment (30-60 seconds)
+- [ ] Test live URL (e.g., `https://your-project.vercel.app`)
+- [ ] Configure custom domain (optional)
+- [ ] Enable automatic deployments (on by default)
+- [ ] Test preview deployments with a new branch/PR
+
+**Time estimate**: 5-10 minutes  
+**Difficulty**: Very Easy  
+**Cost**: Free (Hobby tier) or $20/month (Pro)
 
 ## DigitalOcean App Platform Deployment
 
@@ -123,14 +145,20 @@ If not using the automated script:
 ### Issue: 404 error on page refresh (SharedHosting)
 **Solution**: Ensure .htaccess file is present and mod_rewrite is enabled
 
+### Issue: 404 error on page refresh (Vercel)
+**Solution**: Verify vercel.json routing configuration is correct
+
 ### Issue: Images not loading
 **Solution**: Verify all assets were uploaded, check file paths and CORS settings
 
-### Issue: Build fails
+### Issue: Build fails on Vercel
+**Solution**: Check build logs in Vercel dashboard, verify all dependencies are in package.json, check Node.js version
+
+### Issue: Build fails locally
 **Solution**: Check Node.js version, delete node_modules and package-lock.json, reinstall dependencies
 
 ### Issue: Slow loading
-**Solution**: Enable compression, optimize images, use CDN, enable caching
+**Solution**: Enable compression, optimize images, use CDN (Vercel has this built-in), enable caching
 
 ## Environment Configuration
 
@@ -146,6 +174,11 @@ If your application uses environment variables:
 ## DNS Configuration
 
 For custom domains:
+
+### Vercel
+- Add domain in Vercel Dashboard → Project Settings → Domains
+- Update DNS records as instructed by Vercel (usually CNAME or A record)
+- SSL certificate is automatically provisioned
 
 ### DigitalOcean App Platform
 - Add domain in App Platform dashboard
@@ -199,6 +232,12 @@ For custom domains:
 ## Rollback Plan
 
 If deployment fails or issues arise:
+
+### Vercel
+- Go to Vercel Dashboard → Deployments
+- Find the previous working deployment
+- Click "..." → "Promote to Production"
+- Or use CLI: `vercel rollback [deployment-url]`
 
 ### DigitalOcean App Platform
 - Use the "Rollback" feature in the dashboard
