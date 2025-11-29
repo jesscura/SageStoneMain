@@ -483,6 +483,8 @@ class BlogService {
   private config: CMSConfig;
   private cache: Map<string, { data: unknown; timestamp: number }> = new Map();
   private cacheTimeout = 5 * 60 * 1000; // 5 minutes cache
+  // Contentful API max limit per request (used for pagination)
+  private static readonly CONTENTFUL_MAX_LIMIT = 1000;
 
   constructor() {
     this.config = getCMSConfig();
@@ -741,14 +743,17 @@ class BlogService {
     // Fetch all posts using pagination to ensure accurate category counts
     // Contentful API has a max limit of 1000 per request, default is 100
     const allPosts: BlogPost[] = [];
-    const batchSize = 1000; // Contentful's maximum limit per request
+    const batchSize = BlogService.CONTENTFUL_MAX_LIMIT;
     let offset = 0;
-    let total = 0;
+    let total: number | null = null;
 
     do {
       const { posts, total: fetchedTotal } = await this.getPosts({ limit: batchSize, offset });
       allPosts.push(...posts);
-      total = fetchedTotal;
+      // Set total only once from the first request for consistency
+      if (total === null) {
+        total = fetchedTotal;
+      }
       // Break if no posts returned to prevent infinite loop
       if (posts.length === 0) break;
       offset += batchSize;
