@@ -23,18 +23,14 @@
 
   ## Deployment
 
-  🚀 **Quick Start**: See [QUICK_START_DEPLOY.md](./QUICK_START_DEPLOY.md) for fast deployment instructions.
+  This application is designed for deployment on Railway.
 
-  📚 **Detailed Guide**: See [DEPLOYMENT.md](./DEPLOYMENT.md) for comprehensive deployment instructions.
+  ### Railway Deployment Steps
 
-  ✅ **Checklist**: See [DEPLOYMENT_CHECKLIST.md](./DEPLOYMENT_CHECKLIST.md) for step-by-step deployment checklist.
-
-  ### Quick Deployment Options
-
-  - **Vercel (Recommended)**: Ultra-fast deployment with global CDN and automatic CI/CD (~5 minutes, Free tier available)
-  - **DigitalOcean App Platform**: Easy deployment with automatic CI/CD (~10 minutes, $5/month)
-  - **DigitalOcean Droplet**: Full control with Nginx server (~20 minutes, $6/month)
-  - **SharedHosting (cPanel)**: Budget-friendly option with familiar interface (~10 minutes, $3-10/month)
-
-  All deployment methods are fully documented with detailed instructions, troubleshooting guides, and automated scripts.
+  1. Connect your GitHub repository to Railway
+  2. Railway will auto-detect the build settings:
+     - Build Command: `npm run build`
+     - Start Command: `npm start`
+  3. Add any required environment variables in Railway dashboard (prefix with `VITE_` for client-side variables)
+  4. Deploy and your application will be live
   
