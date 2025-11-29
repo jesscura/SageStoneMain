@@ -2,7 +2,7 @@
   import { defineConfig } from 'vite';
   import react from '@vitejs/plugin-react-swc';
   import path from 'path';
-  import { copyFileSync } from 'fs';
+  import { copyFileSync, existsSync } from 'fs';
 
   export default defineConfig({
     plugins: [
@@ -11,11 +11,13 @@
         name: 'copy-htaccess',
         closeBundle() {
           // Copy .htaccess to build directory for SharedHosting deployments
-          try {
-            copyFileSync('.htaccess', 'build/.htaccess');
-            console.log('✓ Copied .htaccess to build directory');
-          } catch (err) {
-            console.warn('⚠ Could not copy .htaccess:', err);
+          if (existsSync('.htaccess')) {
+            try {
+              copyFileSync('.htaccess', 'build/.htaccess');
+              console.log('✓ Copied .htaccess to build directory');
+            } catch (err) {
+              console.warn('⚠ Could not copy .htaccess:', err instanceof Error ? err.message : err);
+            }
           }
         }
       }
