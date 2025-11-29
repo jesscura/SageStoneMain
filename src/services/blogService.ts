@@ -749,8 +749,10 @@ class BlogService {
       const { posts, total: fetchedTotal } = await this.getPosts({ limit: batchSize, offset });
       allPosts.push(...posts);
       total = fetchedTotal;
-      offset += posts.length;
-    } while (offset < total && allPosts.length < total);
+      // Break if no posts returned to prevent infinite loop
+      if (posts.length === 0) break;
+      offset += batchSize;
+    } while (offset < total);
     
     const categoryMap = new Map<string, number>();
 
