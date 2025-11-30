@@ -2359,6 +2359,10 @@
     background: var(--gradient-primary);
   }
 
+  .nav-shadow {
+    box-shadow: 0 2px 20px rgba(142, 58, 255, 0.08);
+  }
+
   .glow-button {
     box-shadow: 0 4px 14px #b14eff63;
   }
