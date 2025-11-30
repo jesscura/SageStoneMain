@@ -43,10 +43,6 @@ export default {
           '2xl': '6rem',
         },
       },
-      transitionDuration: {
-        '200': '200ms',
-        '300': '300ms',
-      },
       ringColor: {
         brand: 'var(--color-primary)',
       },
