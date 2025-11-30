@@ -189,7 +189,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <ImageWithFallback
                   src={heroImage}
-                  alt="Professional team collaborating on customer support solutions"
+                  alt="Customer support team collaborating on business solutions"
                   className="w-full aspect-[4/3] object-cover"
                   eager
                 />

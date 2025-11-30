@@ -19,9 +19,8 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
 
   return (
     <nav 
-      className="sticky top-0 z-50 bg-white/95 backdrop-blur-lg border-b border-[#E7E2EE] shadow-sm transition-all duration-300" 
+      className="sticky top-0 z-50 bg-white/95 backdrop-blur-lg border-b border-[#E7E2EE] nav-shadow transition-all duration-300" 
       aria-label="Main navigation"
-      style={{ boxShadow: '0 2px 20px rgba(142, 58, 255, 0.08)' }}
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
