@@ -37,7 +37,7 @@ export default function App() {
       case "pricing":
         return <PricingPage onNavigate={handleNavigate} />;
       case "contact":
-        return <ContactPage />;
+        return <ContactPage onNavigate={handleNavigate} />;
       case "blog":
         return <BlogPage onNavigate={handleNavigate} />;
       case "case-studies":

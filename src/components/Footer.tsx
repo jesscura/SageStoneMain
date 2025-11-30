@@ -25,7 +25,9 @@ export function Footer({ onNavigate }: FooterProps) {
 
             <div className="flex items-center gap-4" role="list" aria-label="Social media links">
               <a 
-                href="#" 
+                href="https://www.linkedin.com/company/sagestonelab"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-white/10 hover:bg-[#B14EFF] flex items-center justify-center transition-colors"
                 aria-label="Follow us on LinkedIn"
                 role="listitem"
@@ -33,7 +35,9 @@ export function Footer({ onNavigate }: FooterProps) {
                 <Linkedin className="w-5 h-5" aria-hidden="true" />
               </a>
               <a 
-                href="#" 
+                href="https://twitter.com/sagestonelab"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-white/10 hover:bg-[#B14EFF] flex items-center justify-center transition-colors"
                 aria-label="Follow us on Twitter"
                 role="listitem"
@@ -41,7 +45,9 @@ export function Footer({ onNavigate }: FooterProps) {
                 <Twitter className="w-5 h-5" aria-hidden="true" />
               </a>
               <a 
-                href="#" 
+                href="https://www.youtube.com/@sagestonelab"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-white/10 hover:bg-[#B14EFF] flex items-center justify-center transition-colors"
                 aria-label="Subscribe to our YouTube channel"
                 role="listitem"
