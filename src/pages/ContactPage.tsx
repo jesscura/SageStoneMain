@@ -5,7 +5,11 @@ import { Badge } from "../components/ui/badge";
 import { Card } from "../components/ui/card";
 import { Mail, Phone, MapPin, Clock, ArrowRight, MessageSquare } from "lucide-react";
 
-export function ContactPage() {
+interface ContactPageProps {
+  onNavigate: (page: string) => void;
+}
+
+export function ContactPage({ onNavigate }: ContactPageProps) {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -213,22 +217,34 @@ export function ContactPage() {
               <div className="bg-[#F9F8FB] rounded-2xl p-8 border border-[#E7E2EE]">
                 <h4 className="text-[#1C1B20] mb-4">Looking for something specific?</h4>
                 <div className="space-y-3">
-                  <a href="#" className="flex items-center justify-between text-[#6D6A73] hover:text-[#8E3AFF] transition-colors">
-                    <span>Download our services overview</span>
+                  <button 
+                    onClick={() => onNavigate("services")}
+                    className="w-full flex items-center justify-between text-[#6D6A73] hover:text-[#8E3AFF] transition-colors"
+                  >
+                    <span>View our services overview</span>
                     <ArrowRight className="w-4 h-4" />
-                  </a>
-                  <a href="#" className="flex items-center justify-between text-[#6D6A73] hover:text-[#8E3AFF] transition-colors">
+                  </button>
+                  <button 
+                    onClick={() => onNavigate("pricing")}
+                    className="w-full flex items-center justify-between text-[#6D6A73] hover:text-[#8E3AFF] transition-colors"
+                  >
                     <span>View pricing details</span>
                     <ArrowRight className="w-4 h-4" />
-                  </a>
-                  <a href="#" className="flex items-center justify-between text-[#6D6A73] hover:text-[#8E3AFF] transition-colors">
+                  </button>
+                  <button 
+                    onClick={() => onNavigate("case-studies")}
+                    className="w-full flex items-center justify-between text-[#6D6A73] hover:text-[#8E3AFF] transition-colors"
+                  >
                     <span>Read our case studies</span>
                     <ArrowRight className="w-4 h-4" />
-                  </a>
-                  <a href="#" className="flex items-center justify-between text-[#6D6A73] hover:text-[#8E3AFF] transition-colors">
+                  </button>
+                  <button 
+                    onClick={() => onNavigate("careers")}
+                    className="w-full flex items-center justify-between text-[#6D6A73] hover:text-[#8E3AFF] transition-colors"
+                  >
                     <span>Join our team (we're hiring!)</span>
                     <ArrowRight className="w-4 h-4" />
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

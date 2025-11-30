@@ -3,7 +3,7 @@ import { Badge } from "../components/ui/badge";
 import { Card } from "../components/ui/card";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { ScrollAnimation } from "../components/ScrollAnimation";
-import { Target, Users, TrendingUp, Heart, ArrowRight, Award, Globe, CheckCircle2, Linkedin } from "lucide-react";
+import { Target, Users, TrendingUp, Heart, ArrowRight, Award, Globe, CheckCircle2 } from "lucide-react";
 
 interface AboutPageProps {
   onNavigate: (page: string) => void;
@@ -38,29 +38,25 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
       name: "Jesel Cura",
       role: "Founder & CEO",
       bio: "10+ years in Customer Success and Operations. Former Director of Operations leading global teams across eCommerce, property management, and customer service.",
-      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZmVzc2lvbmFsJTIwd29tYW58ZW58MHx8fHwxNjk2MDAwMDAwfDA&ixlib=rb-4.0.3&q=80&w=400",
-      linkedin: "#"
+      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZmVzc2lvbmFsJTIwd29tYW58ZW58MHx8fHwxNjk2MDAwMDAwfDA&ixlib=rb-4.0.3&q=80&w=400"
     },
     {
       name: "Maria Santos",
       role: "Operations Manager",
       bio: "Expert in process optimization and team management. Ensures smooth operations and consistent service delivery across all client engagements.",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8NHx8cHJvZmVzc2lvbmFsJTIwd29tYW58ZW58MHx8fHwxNjk2MDAwMDAwfDA&ixlib=rb-4.0.3&q=80&w=400",
-      linkedin: "#"
+      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8NHx8cHJvZmVzc2lvbmFsJTIwd29tYW58ZW58MHx8fHwxNjk2MDAwMDAwfDA&ixlib=rb-4.0.3&q=80&w=400"
     },
     {
       name: "David Chen",
       role: "Client Success Lead",
       bio: "Dedicated to building lasting client relationships. Bridges communication between clients and operations teams to ensure exceptional outcomes.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZmVzc2lvbmFsJTIwbWFufGVufDB8fHx8MTY5NjAwMDAwMHww&ixlib=rb-4.0.3&q=80&w=400",
-      linkedin: "#"
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZmVzc2lvbmFsJTIwbWFufGVufDB8fHx8MTY5NjAwMDAwMHww&ixlib=rb-4.0.3&q=80&w=400"
     },
     {
       name: "Sarah Johnson",
       role: "Training & Quality Lead",
       bio: "Develops training programs and quality standards. Ensures every team member is equipped to deliver excellence from day one.",
-      image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8Nnx8cHJvZmVzc2lvbmFsJTIwd29tYW58ZW58MHx8fHwxNjk2MDAwMDAwfDA&ixlib=rb-4.0.3&q=80&w=400",
-      linkedin: "#"
+      image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8Nnx8cHJvZmVzc2lvbmFsJTIwd29tYW58ZW58MHx8fHwxNjk2MDAwMDAwfDA&ixlib=rb-4.0.3&q=80&w=400"
     }
   ];
 
@@ -227,18 +223,9 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#8E3AFF]/30 to-transparent" />
                   </div>
                   <div className="p-6">
-                    <div className="flex items-start justify-between mb-2">
-                      <div>
-                        <h4 className="text-[#1C1B20]">{member.name}</h4>
-                        <p className="text-sm text-[#8E3AFF]">{member.role}</p>
-                      </div>
-                      <a
-                        href={member.linkedin}
-                        className="w-8 h-8 rounded-lg bg-[#F3E8FF] hover:bg-[#B14EFF] flex items-center justify-center transition-colors group"
-                        aria-label={`Connect with ${member.name} on LinkedIn`}
-                      >
-                        <Linkedin className="w-4 h-4 text-[#8E3AFF] group-hover:text-white" aria-hidden="true" />
-                      </a>
+                    <div className="mb-2">
+                      <h4 className="text-[#1C1B20]">{member.name}</h4>
+                      <p className="text-sm text-[#8E3AFF]">{member.role}</p>
                     </div>
                     <p className="text-sm text-[#6D6A73]">{member.bio}</p>
                   </div>
