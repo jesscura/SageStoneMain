@@ -4,8 +4,8 @@ import { Card } from "../components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion";
 import { ScrollAnimation } from "../components/ScrollAnimation";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { HomePageHero } from "./HomePageHero";
 import { 
-  Sparkles, 
   ArrowRight, 
   TrendingUp,
   DollarSign,
@@ -22,9 +22,6 @@ import {
   HelpCircle
 } from "lucide-react";
 
-// Hero image - Professional customer support team
-const heroImage = "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjdXN0b21lciUyMHN1cHBvcnQlMjB0ZWFtfGVufDF8fHx8MTczMjk0MDAwMHww&ixlib=rb-4.1.0&q=80&w=1080";
-
 // About Us section image - Professional team collaboration
 const aboutImage = "https://images.unsplash.com/photo-1522071820081-009f0129c71c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwY29sbGFib3JhdGlvbiUyMG9mZmljZXxlbnwxfHx8fDE3MzI5NDAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080";
 
@@ -33,6 +30,14 @@ interface HomePageProps {
 }
 
 export function HomePage({ onNavigate }: HomePageProps) {
+  // Smooth scroll to How It Works section
+  const scrollToHowItWorks = () => {
+    const element = document.getElementById("how-it-works");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const services = [
     {
       icon: Headphones,
@@ -44,7 +49,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       icon: ShoppingBag,
       title: "Shopify / E-com",
       description: "Store updates, orders, fulfillment, and returns handled by eCommerce experts.",
-      color: "#00FF88"
+      color: "#3DD6C4"
     },
     {
       icon: FileText,
@@ -62,7 +67,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       icon: Home,
       title: "Property Management",
       description: "Tenant communication, maintenance coordination, and leasing support.",
-      color: "#00FF88"
+      color: "#3DD6C4"
     },
     {
       icon: Bot,
@@ -153,69 +158,11 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
   return (
     <div className="min-h-screen bg-[#0A0118]">
-      {/* Hero Section - Dark Mode Premium */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0A0118] via-[#1A0B2E] to-[#0A0118]">
-        {/* Animated gradient orbs */}
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-[#B14EFF]/20 rounded-full blur-3xl animate-pulse" aria-hidden="true" />
-        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[#00FF88]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} aria-hidden="true" />
-        
-        <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-32">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Column - Text Content */}
-            <div className="fade-in-up">
-              <Badge className="mb-6 bg-[#B14EFF]/10 text-[#B14EFF] border-[#B14EFF]/30 backdrop-blur-sm">
-                <Sparkles className="w-3 h-3 mr-1" aria-hidden="true" />
-                Virtual Support & Automation Solutions
-              </Badge>
-              
-              <h1 className="text-white mb-6">
-                Scale your operations <span className="text-[#00FF88]">40% faster</span> with tailored virtual support and automation.
-              </h1>
-              
-              <p className="text-xl text-[#C4B8D4] leading-relaxed mb-10">
-                We build dedicated remote teams that handle your customer support, admin, and back-office — so you can focus on growth.
-              </p>
-              
-              {/* CTAs */}
-              <div className="flex flex-wrap gap-4 mb-12">
-                <Button 
-                  size="lg" 
-                  onClick={() => onNavigate("contact")}
-                  className="bg-[#00FF88] hover:bg-[#00DD77] text-[#0A0118] font-semibold transition-all hover:scale-105 min-w-[44px] min-h-[44px]"
-                  aria-label="Book a free consultation"
-                >
-                  Book a Free Consultation
-                  <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  onClick={() => onNavigate("how-it-works")}
-                  className="border-[#B14EFF] text-[#B14EFF] hover:bg-[#B14EFF]/10 transition-all min-w-[44px] min-h-[44px]"
-                  aria-label="See how it works"
-                >
-                  See How It Works
-                </Button>
-              </div>
-            </div>
-
-            {/* Right Column - Hero Image */}
-            <div className="relative">
-              <div className="relative rounded-3xl overflow-hidden border border-[#2A1B3D]">
-                <ImageWithFallback
-                  src={heroImage}
-                  alt="Customer support team collaborating on business solutions"
-                  className="w-full aspect-[4/3] object-cover"
-                  eager
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0118]/80 via-transparent to-transparent" aria-hidden="true" />
-              </div>
-              {/* Glow effect */}
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-[#B14EFF] to-[#00FF88] rounded-full blur-3xl opacity-30" aria-hidden="true" />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Section - New Conversion-focused Hero */}
+      <HomePageHero
+        onPrimaryClick={() => onNavigate("contact")}
+        onSecondaryClick={scrollToHowItWorks}
+      />
 
       {/* Trust Signals Bar */}
       <section className="py-6 bg-[#1A0B2E]/50 border-y border-[#2A1B3D]">
@@ -223,32 +170,32 @@ export function HomePage({ onNavigate }: HomePageProps) {
           <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-16">
             <div className="text-center">
               <div className="flex items-center gap-2 text-white mb-1">
-                <TrendingUp className="w-5 h-5 text-[#00FF88]" aria-hidden="true" />
-                <span className="text-2xl font-bold text-[#00FF88]">+18%</span>
+                <TrendingUp className="w-5 h-5 text-[#3DD6C4]" aria-hidden="true" />
+                <span className="text-2xl font-bold text-[#3DD6C4]">+18%</span>
               </div>
               <p className="text-xs text-[#C4B8D4]">CSAT Improvement</p>
             </div>
             <div className="hidden md:block w-px h-12 bg-[#2A1B3D]" aria-hidden="true" />
             <div className="text-center">
               <div className="flex items-center gap-2 text-white mb-1">
-                <DollarSign className="w-5 h-5 text-[#00FF88]" aria-hidden="true" />
-                <span className="text-2xl font-bold text-[#00FF88]">−35%</span>
+                <DollarSign className="w-5 h-5 text-[#3DD6C4]" aria-hidden="true" />
+                <span className="text-2xl font-bold text-[#3DD6C4]">−35%</span>
               </div>
               <p className="text-xs text-[#C4B8D4]">Cost Reduction</p>
             </div>
             <div className="hidden md:block w-px h-12 bg-[#2A1B3D]" aria-hidden="true" />
             <div className="text-center">
               <div className="flex items-center gap-2 text-white mb-1">
-                <Clock className="w-5 h-5 text-[#00FF88]" aria-hidden="true" />
-                <span className="text-2xl font-bold text-[#00FF88]">2 weeks</span>
+                <Clock className="w-5 h-5 text-[#3DD6C4]" aria-hidden="true" />
+                <span className="text-2xl font-bold text-[#3DD6C4]">2 weeks</span>
               </div>
               <p className="text-xs text-[#C4B8D4]">To Launch</p>
             </div>
             <div className="hidden md:block w-px h-12 bg-[#2A1B3D]" aria-hidden="true" />
             <div className="text-center">
               <div className="flex items-center gap-2 text-white mb-1">
-                <Users className="w-5 h-5 text-[#00FF88]" aria-hidden="true" />
-                <span className="text-2xl font-bold text-[#00FF88]">50+</span>
+                <Users className="w-5 h-5 text-[#3DD6C4]" aria-hidden="true" />
+                <span className="text-2xl font-bold text-[#3DD6C4]">50+</span>
               </div>
               <p className="text-xs text-[#C4B8D4]">Global Brands</p>
             </div>
@@ -270,7 +217,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             {whoWeServe.map((segment, index) => (
               <ScrollAnimation key={index} animation="fadeInUp" delay={index * 100}>
                 <Card className="p-6 bg-[#1A0B2E]/50 backdrop-blur-sm border-[#2A1B3D] hover:border-[#B14EFF]/50 transition-all duration-300 text-center h-full group">
-                  <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#B14EFF]/20 to-[#00FF88]/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#B14EFF]/20 to-[#3DD6C4]/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <segment.icon className="w-7 h-7 text-[#B14EFF]" aria-hidden="true" />
                   </div>
                   <h4 className="text-white mb-2">{segment.title}</h4>
@@ -283,14 +230,14 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* Services - Dark Mode Cards */}
-      <section className="py-24 lg:py-32 bg-gradient-to-b from-[#0A0118] to-[#1A0B2E]">
+      <section id="how-it-works" className="py-24 lg:py-32 bg-gradient-to-b from-[#0A0118] to-[#1A0B2E]">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollAnimation animation="fadeInUp" className="text-center max-w-3xl mx-auto mb-16">
             <Badge className="mb-4 bg-[#B14EFF]/10 text-[#B14EFF] border-[#B14EFF]/20">
               Our Services
             </Badge>
             <h2 className="text-white mb-4">
-              Outsourced operations built for <span className="text-[#00FF88]">scale</span>
+              Outsourced operations built for <span className="text-[#3DD6C4]">scale</span>
             </h2>
             <p className="text-xl text-[#C4B8D4]">
               We build teams that help businesses run smarter, not harder.
@@ -314,7 +261,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                   <p className="text-sm text-[#C4B8D4] mb-4">{service.description}</p>
                   <button 
                     onClick={() => onNavigate("services")}
-                    className="text-sm text-[#B14EFF] hover:text-[#00FF88] flex items-center gap-1 group/btn min-w-[44px] min-h-[44px]"
+                    className="text-sm text-[#B14EFF] hover:text-[#3DD6C4] flex items-center gap-1 group/btn min-w-[44px] min-h-[44px]"
                     aria-label={`Learn more about ${service.title}`}
                   >
                     Get a Tailored Plan
@@ -343,7 +290,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
         <div className="max-w-7xl mx-auto px-6">
           <ScrollAnimation animation="fadeInUp" className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-white mb-4">
-              Built on <span className="text-[#00FF88]">real results</span>
+              Built on <span className="text-[#3DD6C4]">real results</span>
             </h2>
             <p className="text-xl text-[#C4B8D4]">
               Proven metrics from real client partnerships
@@ -355,7 +302,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
               <Card className="p-8 text-center bg-[#0A0118]/50 border-[#2A1B3D] relative overflow-hidden h-full">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B14EFF]/20 to-transparent rounded-full -mr-16 -mt-16" aria-hidden="true" />
                 <TrendingUp className="w-12 h-12 text-[#B14EFF] mx-auto mb-4" aria-hidden="true" />
-                <div className="text-5xl font-bold text-[#00FF88] mb-2">+18%</div>
+                <div className="text-5xl font-bold text-[#3DD6C4] mb-2">+18%</div>
                 <div className="text-white mb-2">CSAT Uplift</div>
                 <p className="text-sm text-[#C4B8D4]">
                   Average customer satisfaction improvement with dedicated support teams
@@ -367,7 +314,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
               <Card className="p-8 text-center bg-[#0A0118]/50 border-[#2A1B3D] relative overflow-hidden h-full">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#FF72E1]/20 to-transparent rounded-full -mr-16 -mt-16" aria-hidden="true" />
                 <DollarSign className="w-12 h-12 text-[#FF72E1] mx-auto mb-4" aria-hidden="true" />
-                <div className="text-5xl font-bold text-[#00FF88] mb-2">−35%</div>
+                <div className="text-5xl font-bold text-[#3DD6C4] mb-2">−35%</div>
                 <div className="text-white mb-2">Cost to Serve</div>
                 <p className="text-sm text-[#C4B8D4]">
                   Reduction in operational costs without compromising quality
@@ -377,9 +324,9 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
             <ScrollAnimation animation="fadeInUp" delay={200}>
               <Card className="p-8 text-center bg-[#0A0118]/50 border-[#2A1B3D] relative overflow-hidden h-full">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#00FF88]/20 to-transparent rounded-full -mr-16 -mt-16" aria-hidden="true" />
-                <Clock className="w-12 h-12 text-[#00FF88] mx-auto mb-4" aria-hidden="true" />
-                <div className="text-5xl font-bold text-[#00FF88] mb-2">2 weeks</div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#3DD6C4]/20 to-transparent rounded-full -mr-16 -mt-16" aria-hidden="true" />
+                <Clock className="w-12 h-12 text-[#3DD6C4] mx-auto mb-4" aria-hidden="true" />
+                <div className="text-5xl font-bold text-[#3DD6C4] mb-2">2 weeks</div>
                 <div className="text-white mb-2">Onboarding</div>
                 <p className="text-sm text-[#C4B8D4]">
                   From kickoff to fully operational team, ready to support your growth
@@ -398,7 +345,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
               Client Success
             </Badge>
             <h2 className="text-white mb-4">
-              Your success story <span className="text-[#00FF88]">starts here</span>
+              Your success story <span className="text-[#3DD6C4]">starts here</span>
             </h2>
             <p className="text-xl text-[#C4B8D4]">
               Real results from real partnerships
@@ -415,8 +362,8 @@ export function HomePage({ onNavigate }: HomePageProps) {
                     ))}
                   </div>
                   {testimonial.metric && (
-                    <div className="mb-4 px-4 py-2 bg-[#00FF88]/10 rounded-lg border border-[#00FF88]/20">
-                      <p className="text-sm text-[#00FF88] font-medium">{testimonial.metric}</p>
+                    <div className="mb-4 px-4 py-2 bg-[#3DD6C4]/10 rounded-lg border border-[#3DD6C4]/20">
+                      <p className="text-sm text-[#3DD6C4] font-medium">{testimonial.metric}</p>
                     </div>
                   )}
                   <blockquote className="text-white mb-6 leading-relaxed">
@@ -468,7 +415,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 About Us
               </Badge>
               <h2 className="text-white mb-4">
-                Your trusted partner for <span className="text-[#00FF88]">business growth</span>
+                Your trusted partner for <span className="text-[#3DD6C4]">business growth</span>
               </h2>
               <p className="text-lg text-[#C4B8D4] leading-relaxed mb-6">
                 SageStone Inc is a global BPO agency dedicated to helping businesses scale their operations efficiently. 
@@ -556,7 +503,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
               <Button 
                 size="lg"
                 onClick={() => onNavigate("contact")}
-                className="bg-[#00FF88] hover:bg-[#00DD77] text-[#0A0118] font-semibold transition-all hover:scale-105 min-w-[44px] min-h-[44px]"
+                className="bg-[#3DD6C4] hover:bg-[#35C0B0] text-[#0A0118] font-semibold transition-all hover:scale-105 min-w-[44px] min-h-[44px]"
                 aria-label="Start your build"
               >
                 Start your build
