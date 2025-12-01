@@ -103,16 +103,16 @@ export function IndustriesPage({ onNavigate }: IndustriesPageProps) {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#F3E8FF] via-white to-[#F9F8FB] py-20 lg:py-28">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-100)] via-white to-muted py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <Badge className="mb-6 bg-white/90 text-[#8E3AFF] border-[#B14EFF]/30">
+            <Badge className="mb-6 bg-white/90 text-primary border-[var(--color-primary-400)]/30">
               Industries We Serve
             </Badge>
-            <h1 className="text-[#1C1B20] mb-6">
+            <h1 className="text-foreground mb-6">
               BPO solutions tailored for <span className="gradient-text">your industry</span>
             </h1>
-            <p className="text-xl text-[#6D6A73] leading-relaxed">
+            <p className="text-xl text-muted-foreground leading-relaxed">
               We understand that every industry has unique challenges. That's why we build dedicated teams 
               with specialized expertise to help you succeed.
             </p>
@@ -126,44 +126,44 @@ export function IndustriesPage({ onNavigate }: IndustriesPageProps) {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {industries.map((industry, index) => (
               <ScrollAnimation key={index} animation="fadeInUp" delay={index * 100}>
-                <Card className="overflow-hidden border-[#E7E2EE] hover:border-[#B14EFF]/30 hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                <Card className="overflow-hidden border-border hover:border-[var(--color-primary-400)]/30 hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                   <div className="relative h-48 overflow-hidden">
                     <ImageWithFallback
                       src={industry.image}
                       alt={industry.title}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#8E3AFF]/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
                     <div className="absolute bottom-4 left-4">
                       <div className="w-12 h-12 rounded-xl bg-white/90 backdrop-blur flex items-center justify-center">
-                        <industry.icon className="w-6 h-6 text-[#8E3AFF]" aria-hidden="true" />
+                        <industry.icon className="w-6 h-6 text-primary" aria-hidden="true" />
                       </div>
                     </div>
                   </div>
                   
                   <div className="p-6 flex flex-col flex-1">
-                    <h3 className="text-xl text-[#1C1B20] mb-2">{industry.title}</h3>
-                    <p className="text-[#6D6A73] mb-4 text-sm">{industry.description}</p>
+                    <h3 className="text-xl text-foreground mb-2">{industry.title}</h3>
+                    <p className="text-muted-foreground mb-4 text-sm">{industry.description}</p>
                     
                     <ul className="space-y-2 mb-6 flex-1">
                       {industry.benefits.map((benefit, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-[#6D6A73]">
-                          <CheckCircle2 className="w-4 h-4 text-[#8E3AFF] shrink-0 mt-0.5" aria-hidden="true" />
+                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" aria-hidden="true" />
                           {benefit}
                         </li>
                       ))}
                     </ul>
                     
-                    <div className="pt-4 border-t border-[#E7E2EE] flex items-center justify-between">
+                    <div className="pt-4 border-t border-border flex items-center justify-between">
                       <div>
-                        <p className="text-xs text-[#6D6A73]">{industry.metrics.label}</p>
+                        <p className="text-xs text-muted-foreground">{industry.metrics.label}</p>
                         <p className="text-lg gradient-text font-semibold">{industry.metrics.value}</p>
                       </div>
                       <Button
                         onClick={() => onNavigate("contact")}
                         variant="outline"
                         size="sm"
-                        className="border-[#B14EFF] text-[#8E3AFF] hover:bg-[#F3E8FF]"
+                        className="border-[var(--color-primary-400)] text-primary hover:bg-[var(--color-primary-100)]"
                         aria-label={`Learn more about ${industry.title}`}
                       >
                         Learn More
@@ -178,13 +178,13 @@ export function IndustriesPage({ onNavigate }: IndustriesPageProps) {
       </section>
 
       {/* Why Industry Expertise Matters */}
-      <section className="py-20 lg:py-28 bg-[#F9F8FB]">
+      <section className="py-20 lg:py-28 bg-muted">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollAnimation animation="fadeInUp" className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-[#1C1B20] mb-4">
+            <h2 className="text-foreground mb-4">
               Why <span className="gradient-text">industry expertise</span> matters
             </h2>
-            <p className="text-xl text-[#6D6A73]">
+            <p className="text-xl text-muted-foreground">
               Generic outsourcing doesn't work. We invest in understanding your industry's 
               specific needs, terminology, and challenges.
             </p>
@@ -206,12 +206,12 @@ export function IndustriesPage({ onNavigate }: IndustriesPageProps) {
               }
             ].map((item, index) => (
               <ScrollAnimation key={index} animation="fadeInUp" delay={index * 100}>
-                <Card className="p-8 border-[#E7E2EE] hover:border-[#B14EFF]/30 transition-colors text-center h-full">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#B14EFF]/10 to-[#FF72E1]/10 flex items-center justify-center mx-auto mb-4">
+                <Card className="p-8 border-border hover:border-[var(--color-primary-400)]/30 transition-colors text-center h-full">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--color-primary-400)]/10 to-accent/10 flex items-center justify-center mx-auto mb-4">
                     <span className="text-2xl gradient-text font-bold">{index + 1}</span>
                   </div>
-                  <h4 className="text-[#1C1B20] mb-3">{item.title}</h4>
-                  <p className="text-[#6D6A73]">{item.description}</p>
+                  <h4 className="text-foreground mb-3">{item.title}</h4>
+                  <p className="text-muted-foreground">{item.description}</p>
                 </Card>
               </ScrollAnimation>
             ))}
@@ -233,21 +233,21 @@ export function IndustriesPage({ onNavigate }: IndustriesPageProps) {
             <Button
               size="lg"
               onClick={() => onNavigate("contact")}
-              className="bg-white !text-[#8E3AFF] hover:bg-white/90 transition-lift hover-lift min-w-[44px] min-h-[44px]"
+              className="bg-white !text-primary hover:bg-white/90 transition-lift hover-lift min-w-[44px] min-h-[44px]"
               aria-label="Contact us to discuss your industry needs"
             >
-              <span className="text-[#8E3AFF]">Let's Talk About Your Business</span>
-              <ArrowRight className="w-4 h-4 ml-2 text-[#8E3AFF]" aria-hidden="true" />
+              <span className="text-primary">Let's Talk About Your Business</span>
+              <ArrowRight className="w-4 h-4 ml-2 text-primary" aria-hidden="true" />
             </Button>
           </ScrollAnimation>
         </div>
       </section>
 
       {/* SEO Footer */}
-      <section className="py-12 bg-white border-t border-[#E7E2EE]">
+      <section className="py-12 bg-white border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
-            <p className="text-sm text-[#6D6A73]">
+            <p className="text-sm text-muted-foreground">
               <strong>SageStone Inc Industry Solutions:</strong> BPO and virtual assistant services for eCommerce, 
               Shopify merchants, property management, real estate, startups, SaaS companies, service businesses, 
               SMBs, and digital agencies. Industry-specific expertise for customer support, back-office operations, 

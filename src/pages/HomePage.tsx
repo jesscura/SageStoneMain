@@ -157,7 +157,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0A0118]">
+    <div className="min-h-screen bg-[var(--dark-bg)]">
       {/* Hero Section - New Conversion-focused Hero */}
       <HomePageHero
         onPrimaryClick={() => onNavigate("contact")}
@@ -165,50 +165,50 @@ export function HomePage({ onNavigate }: HomePageProps) {
       />
 
       {/* Trust Signals Bar */}
-      <section className="py-6 bg-[#1A0B2E]/50 border-y border-[#2A1B3D]">
+      <section className="py-6 bg-[var(--dark-bg-secondary)]/50 border-y border-[var(--dark-surface)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-16">
             <div className="text-center">
               <div className="flex items-center gap-2 text-white mb-1">
-                <TrendingUp className="w-5 h-5 text-[#B14EFF]" aria-hidden="true" />
-                <span className="text-2xl font-bold text-[#B14EFF]">+18%</span>
+                <TrendingUp className="w-5 h-5 text-[var(--color-primary-400)]" aria-hidden="true" />
+                <span className="text-2xl font-bold text-[var(--color-primary-400)]">+18%</span>
               </div>
-              <p className="text-xs text-[#C4B8D4]">CSAT Improvement</p>
+              <p className="text-xs text-[var(--dark-text-muted)]">CSAT Improvement</p>
             </div>
-            <div className="hidden md:block w-px h-12 bg-[#2A1B3D]" aria-hidden="true" />
+            <div className="hidden md:block w-px h-12 bg-[var(--dark-surface)]" aria-hidden="true" />
             <div className="text-center">
               <div className="flex items-center gap-2 text-white mb-1">
-                <DollarSign className="w-5 h-5 text-[#B14EFF]" aria-hidden="true" />
-                <span className="text-2xl font-bold text-[#B14EFF]">−35%</span>
+                <DollarSign className="w-5 h-5 text-[var(--color-primary-400)]" aria-hidden="true" />
+                <span className="text-2xl font-bold text-[var(--color-primary-400)]">−35%</span>
               </div>
-              <p className="text-xs text-[#C4B8D4]">Cost Reduction</p>
+              <p className="text-xs text-[var(--dark-text-muted)]">Cost Reduction</p>
             </div>
-            <div className="hidden md:block w-px h-12 bg-[#2A1B3D]" aria-hidden="true" />
+            <div className="hidden md:block w-px h-12 bg-[var(--dark-surface)]" aria-hidden="true" />
             <div className="text-center">
               <div className="flex items-center gap-2 text-white mb-1">
-                <Clock className="w-5 h-5 text-[#B14EFF]" aria-hidden="true" />
-                <span className="text-2xl font-bold text-[#B14EFF]">2 weeks</span>
+                <Clock className="w-5 h-5 text-[var(--color-primary-400)]" aria-hidden="true" />
+                <span className="text-2xl font-bold text-[var(--color-primary-400)]">2 weeks</span>
               </div>
-              <p className="text-xs text-[#C4B8D4]">To Launch</p>
+              <p className="text-xs text-[var(--dark-text-muted)]">To Launch</p>
             </div>
-            <div className="hidden md:block w-px h-12 bg-[#2A1B3D]" aria-hidden="true" />
+            <div className="hidden md:block w-px h-12 bg-[var(--dark-surface)]" aria-hidden="true" />
             <div className="text-center">
               <div className="flex items-center gap-2 text-white mb-1">
-                <Users className="w-5 h-5 text-[#B14EFF]" aria-hidden="true" />
-                <span className="text-2xl font-bold text-[#B14EFF]">50+</span>
+                <Users className="w-5 h-5 text-[var(--color-primary-400)]" aria-hidden="true" />
+                <span className="text-2xl font-bold text-[var(--color-primary-400)]">50+</span>
               </div>
-              <p className="text-xs text-[#C4B8D4]">Global Brands</p>
+              <p className="text-xs text-[var(--dark-text-muted)]">Global Brands</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Who We Serve - Glass Effect Grid */}
-      <section className="py-20 lg:py-28 bg-[#0A0118]">
+      <section className="py-20 lg:py-28 bg-[var(--dark-bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollAnimation animation="fadeInUp" className="text-center mb-16">
             <h2 className="text-white mb-4">Who we serve</h2>
-            <p className="text-xl text-[#C4B8D4]">
+            <p className="text-xl text-[var(--dark-text-muted)]">
               Growing brands that need operations support without the overhead
             </p>
           </ScrollAnimation>
@@ -216,12 +216,12 @@ export function HomePage({ onNavigate }: HomePageProps) {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {whoWeServe.map((segment, index) => (
               <ScrollAnimation key={index} animation="fadeInUp" delay={index * 100}>
-                <Card className="p-6 bg-[#1A0B2E]/50 backdrop-blur-sm border-[#2A1B3D] hover:border-[#B14EFF]/50 transition-all duration-300 text-center h-full group">
-                  <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#B14EFF]/20 to-[#8E3AFF]/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <segment.icon className="w-7 h-7 text-[#B14EFF]" aria-hidden="true" />
+                <Card className="p-6 bg-[var(--dark-bg-secondary)]/50 backdrop-blur-sm border-[var(--dark-surface)] hover:border-[var(--color-primary-400)]/50 transition-all duration-300 text-center h-full group">
+                  <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[var(--color-primary-400)]/20 to-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <segment.icon className="w-7 h-7 text-[var(--color-primary-400)]" aria-hidden="true" />
                   </div>
                   <h4 className="text-white mb-2">{segment.title}</h4>
-                  <p className="text-sm text-[#C4B8D4]">{segment.description}</p>
+                  <p className="text-sm text-[var(--dark-text-muted)]">{segment.description}</p>
                 </Card>
               </ScrollAnimation>
             ))}
@@ -230,16 +230,16 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* Services - Dark Mode Cards */}
-      <section id="how-it-works" className="py-24 lg:py-32 bg-gradient-to-b from-[#0A0118] to-[#1A0B2E]">
+      <section id="how-it-works" className="py-24 lg:py-32 bg-gradient-to-b from-[var(--dark-bg)] to-[var(--dark-bg-secondary)]">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollAnimation animation="fadeInUp" className="text-center max-w-3xl mx-auto mb-16">
-            <Badge className="mb-4 bg-[#B14EFF]/10 text-[#B14EFF] border-[#B14EFF]/20">
+            <Badge className="mb-4 bg-[var(--color-primary-400)]/10 text-[var(--color-primary-400)] border-[var(--color-primary-400)]/20">
               Our Services
             </Badge>
             <h2 className="text-white mb-4">
-              Outsourced operations built for <span className="text-[#B14EFF]">scale</span>
+              Outsourced operations built for <span className="text-[var(--color-primary-400)]">scale</span>
             </h2>
-            <p className="text-xl text-[#C4B8D4]">
+            <p className="text-xl text-[var(--dark-text-muted)]">
               We build teams that help businesses run smarter, not harder.
             </p>
           </ScrollAnimation>
@@ -248,7 +248,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             {services.map((service, index) => (
               <ScrollAnimation key={index} animation="fadeInUp" delay={index * 100}>
                 <Card 
-                  className="p-6 bg-[#1A0B2E]/60 backdrop-blur-sm border-[#2A1B3D] hover:border-[#B14EFF]/50 hover:bg-[#1A0B2E]/80 transition-all duration-300 group h-full"
+                  className="p-6 bg-[var(--dark-bg-secondary)]/60 backdrop-blur-sm border-[var(--dark-surface)] hover:border-[var(--color-primary-400)]/50 hover:bg-[var(--dark-bg-secondary)]/80 transition-all duration-300 group h-full"
                   style={{ borderTopColor: service.color, borderTopWidth: '2px' }}
                 >
                   <div 
@@ -258,10 +258,10 @@ export function HomePage({ onNavigate }: HomePageProps) {
                     <service.icon className="w-6 h-6" style={{ color: service.color }} aria-hidden="true" />
                   </div>
                   <h4 className="text-white mb-2">{service.title}</h4>
-                  <p className="text-sm text-[#C4B8D4] mb-4">{service.description}</p>
+                  <p className="text-sm text-[var(--dark-text-muted)] mb-4">{service.description}</p>
                   <button 
                     onClick={() => onNavigate("services")}
-                    className="text-sm text-[#B14EFF] hover:text-[#8E3AFF] flex items-center gap-1 group/btn min-w-[44px] min-h-[44px]"
+                    className="text-sm text-[var(--color-primary-400)] hover:text-primary flex items-center gap-1 group/btn min-w-[44px] min-h-[44px]"
                     aria-label={`Learn more about ${service.title}`}
                   >
                     Get a Tailored Plan
@@ -276,7 +276,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             <Button 
               onClick={() => onNavigate("services")}
               variant="outline"
-              className="border-[#B14EFF] text-[#B14EFF] hover:bg-[#B14EFF]/10 min-w-[44px] min-h-[44px]"
+              className="border-[var(--color-primary-400)] text-[var(--color-primary-400)] hover:bg-[var(--color-primary-400)]/10 min-w-[44px] min-h-[44px]"
               aria-label="View all services"
             >
               View all services
@@ -286,49 +286,49 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* Results Metrics */}
-      <section className="py-24 lg:py-32 bg-[#1A0B2E]">
+      <section className="py-24 lg:py-32 bg-[var(--dark-bg-secondary)]">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollAnimation animation="fadeInUp" className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-white mb-4">
-              Built on <span className="text-[#B14EFF]">real results</span>
+              Built on <span className="text-[var(--color-primary-400)]">real results</span>
             </h2>
-            <p className="text-xl text-[#C4B8D4]">
+            <p className="text-xl text-[var(--dark-text-muted)]">
               Proven metrics from real client partnerships
             </p>
           </ScrollAnimation>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <ScrollAnimation animation="fadeInUp" delay={0}>
-              <Card className="p-8 text-center bg-[#0A0118]/50 border-[#2A1B3D] relative overflow-hidden h-full">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B14EFF]/20 to-transparent rounded-full -mr-16 -mt-16" aria-hidden="true" />
-                <TrendingUp className="w-12 h-12 text-[#B14EFF] mx-auto mb-4" aria-hidden="true" />
-                <div className="text-5xl font-bold text-[#B14EFF] mb-2">+18%</div>
+              <Card className="p-8 text-center bg-[var(--dark-bg)]/50 border-[var(--dark-surface)] relative overflow-hidden h-full">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[var(--color-primary-400)]/20 to-transparent rounded-full -mr-16 -mt-16" aria-hidden="true" />
+                <TrendingUp className="w-12 h-12 text-[var(--color-primary-400)] mx-auto mb-4" aria-hidden="true" />
+                <div className="text-5xl font-bold text-[var(--color-primary-400)] mb-2">+18%</div>
                 <div className="text-white mb-2">CSAT Uplift</div>
-                <p className="text-sm text-[#C4B8D4]">
+                <p className="text-sm text-[var(--dark-text-muted)]">
                   Average customer satisfaction improvement with dedicated support teams
                 </p>
               </Card>
             </ScrollAnimation>
 
             <ScrollAnimation animation="fadeInUp" delay={100}>
-              <Card className="p-8 text-center bg-[#0A0118]/50 border-[#2A1B3D] relative overflow-hidden h-full">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#FF72E1]/20 to-transparent rounded-full -mr-16 -mt-16" aria-hidden="true" />
-                <DollarSign className="w-12 h-12 text-[#FF72E1] mx-auto mb-4" aria-hidden="true" />
-                <div className="text-5xl font-bold text-[#B14EFF] mb-2">−35%</div>
+              <Card className="p-8 text-center bg-[var(--dark-bg)]/50 border-[var(--dark-surface)] relative overflow-hidden h-full">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/20 to-transparent rounded-full -mr-16 -mt-16" aria-hidden="true" />
+                <DollarSign className="w-12 h-12 text-accent mx-auto mb-4" aria-hidden="true" />
+                <div className="text-5xl font-bold text-[var(--color-primary-400)] mb-2">−35%</div>
                 <div className="text-white mb-2">Cost to Serve</div>
-                <p className="text-sm text-[#C4B8D4]">
+                <p className="text-sm text-[var(--dark-text-muted)]">
                   Reduction in operational costs without compromising quality
                 </p>
               </Card>
             </ScrollAnimation>
 
             <ScrollAnimation animation="fadeInUp" delay={200}>
-              <Card className="p-8 text-center bg-[#0A0118]/50 border-[#2A1B3D] relative overflow-hidden h-full">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#8E3AFF]/20 to-transparent rounded-full -mr-16 -mt-16" aria-hidden="true" />
-                <Clock className="w-12 h-12 text-[#8E3AFF] mx-auto mb-4" aria-hidden="true" />
-                <div className="text-5xl font-bold text-[#B14EFF] mb-2">2 weeks</div>
+              <Card className="p-8 text-center bg-[var(--dark-bg)]/50 border-[var(--dark-surface)] relative overflow-hidden h-full">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/20 to-transparent rounded-full -mr-16 -mt-16" aria-hidden="true" />
+                <Clock className="w-12 h-12 text-primary mx-auto mb-4" aria-hidden="true" />
+                <div className="text-5xl font-bold text-[var(--color-primary-400)] mb-2">2 weeks</div>
                 <div className="text-white mb-2">Onboarding</div>
-                <p className="text-sm text-[#C4B8D4]">
+                <p className="text-sm text-[var(--dark-text-muted)]">
                   From kickoff to fully operational team, ready to support your growth
                 </p>
               </Card>
@@ -338,16 +338,16 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 lg:py-32 bg-gradient-to-b from-[#1A0B2E] to-[#0A0118]">
+      <section className="py-24 lg:py-32 bg-gradient-to-b from-[var(--dark-bg-secondary)] to-[var(--dark-bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollAnimation animation="fadeInUp" className="text-center max-w-3xl mx-auto mb-16">
-            <Badge className="mb-4 bg-[#FF72E1]/10 text-[#FF72E1] border-[#FF72E1]/20">
+            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">
               Client Success
             </Badge>
             <h2 className="text-white mb-4">
-              Your success story <span className="text-[#B14EFF]">starts here</span>
+              Your success story <span className="text-[var(--color-primary-400)]">starts here</span>
             </h2>
-            <p className="text-xl text-[#C4B8D4]">
+            <p className="text-xl text-[var(--dark-text-muted)]">
               Real results from real partnerships
             </p>
           </ScrollAnimation>
@@ -355,15 +355,15 @@ export function HomePage({ onNavigate }: HomePageProps) {
           <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map((testimonial, index) => (
               <ScrollAnimation key={index} animation="fadeInUp" delay={index * 100}>
-                <Card className="p-6 bg-[#1A0B2E]/50 backdrop-blur-sm border-[#2A1B3D] hover:border-[#B14EFF]/30 transition-all h-full">
+                <Card className="p-6 bg-[var(--dark-bg-secondary)]/50 backdrop-blur-sm border-[var(--dark-surface)] hover:border-[var(--color-primary-400)]/30 transition-all h-full">
                   <div className="flex gap-1 mb-4" role="img" aria-label="5 star rating">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-[#FF72E1] text-[#FF72E1]" aria-hidden="true" />
+                      <Star key={i} className="w-4 h-4 fill-accent text-accent" aria-hidden="true" />
                     ))}
                   </div>
                   {testimonial.metric && (
-                    <div className="mb-4 px-4 py-2 bg-[#B14EFF]/10 rounded-lg border border-[#B14EFF]/20">
-                      <p className="text-sm text-[#B14EFF] font-medium">{testimonial.metric}</p>
+                    <div className="mb-4 px-4 py-2 bg-[var(--color-primary-400)]/10 rounded-lg border border-[var(--color-primary-400)]/20">
+                      <p className="text-sm text-[var(--color-primary-400)] font-medium">{testimonial.metric}</p>
                     </div>
                   )}
                   <blockquote className="text-white mb-6 leading-relaxed">
@@ -371,7 +371,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                   </blockquote>
                   <div>
                     <p className="text-white font-medium">{testimonial.author}</p>
-                    <p className="text-sm text-[#C4B8D4]">{testimonial.role}</p>
+                    <p className="text-sm text-[var(--dark-text-muted)]">{testimonial.role}</p>
                   </div>
                 </Card>
               </ScrollAnimation>
@@ -382,7 +382,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             <Button 
               onClick={() => onNavigate("case-studies")}
               variant="outline"
-              className="border-[#B14EFF] text-[#B14EFF] hover:bg-[#B14EFF]/10 min-w-[44px] min-h-[44px]"
+              className="border-[var(--color-primary-400)] text-[var(--color-primary-400)] hover:bg-[var(--color-primary-400)]/10 min-w-[44px] min-h-[44px]"
               aria-label="Read more success stories"
             >
               Read more success stories
@@ -392,43 +392,43 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* About Us Section */}
-      <section className="py-20 lg:py-28 bg-[#0A0118]">
+      <section className="py-20 lg:py-28 bg-[var(--dark-bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <ScrollAnimation animation="fadeInLeft">
               <div className="relative">
-                <div className="relative rounded-3xl overflow-hidden border border-[#2A1B3D]">
+                <div className="relative rounded-3xl overflow-hidden border border-[var(--dark-surface)]">
                   <ImageWithFallback
                     src={aboutImage}
                     alt="SageStone team delivering exceptional business process outsourcing services"
                     className="w-full aspect-[4/3] object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0118]/80 to-transparent" aria-hidden="true" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--dark-bg)]/80 to-transparent" aria-hidden="true" />
                 </div>
                 {/* Glow */}
-                <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-[#B14EFF]/30 rounded-full blur-2xl" aria-hidden="true" />
+                <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-[var(--color-primary-400)]/30 rounded-full blur-2xl" aria-hidden="true" />
               </div>
             </ScrollAnimation>
 
             <ScrollAnimation animation="fadeInRight">
-              <Badge className="mb-6 bg-[#B14EFF]/10 text-[#B14EFF] border-[#B14EFF]/30">
+              <Badge className="mb-6 bg-[var(--color-primary-400)]/10 text-[var(--color-primary-400)] border-[var(--color-primary-400)]/30">
                 About Us
               </Badge>
               <h2 className="text-white mb-4">
-                Your trusted partner for <span className="text-[#B14EFF]">business growth</span>
+                Your trusted partner for <span className="text-[var(--color-primary-400)]">business growth</span>
               </h2>
-              <p className="text-lg text-[#C4B8D4] leading-relaxed mb-6">
+              <p className="text-lg text-[var(--dark-text-muted)] leading-relaxed mb-6">
                 SageStone Inc is a global BPO agency dedicated to helping businesses scale their operations efficiently. 
                 We specialize in customer support outsourcing, virtual assistance, and back-office solutions.
               </p>
-              <p className="text-lg text-[#C4B8D4] leading-relaxed mb-8">
+              <p className="text-lg text-[var(--dark-text-muted)] leading-relaxed mb-8">
                 With a team of experienced professionals and a commitment to excellence, we deliver 
                 accountable people and efficient processes that help our clients achieve their goals.
               </p>
               <Button 
                 onClick={() => onNavigate("about")}
                 variant="outline"
-                className="border-[#B14EFF] text-[#B14EFF] hover:bg-[#B14EFF]/10 min-w-[44px] min-h-[44px]"
+                className="border-[var(--color-primary-400)] text-[var(--color-primary-400)] hover:bg-[var(--color-primary-400)]/10 min-w-[44px] min-h-[44px]"
                 aria-label="Learn more about us"
               >
                 Learn more about us
@@ -440,7 +440,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 lg:py-32 bg-gradient-to-b from-[#4F46E5] via-[#9B6DCD] to-[#D8B4FE]">
+      <section className="py-24 lg:py-32 bg-gradient-to-b from-[var(--color-primary-600)] via-[var(--color-secondary-300)] to-[var(--color-secondary-100)]">
         <div className="max-w-4xl mx-auto px-6">
           <ScrollAnimation animation="fadeInUp" className="text-center mb-16">
             <Badge className="mb-4 bg-white/20 text-white border-white/30">
@@ -448,7 +448,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
               Frequently Asked Questions
             </Badge>
             <h2 className="text-white mb-4">
-              Got questions? We've got <span className="text-[#F5D0FE]">answers</span>
+              Got questions? We've got <span className="text-[var(--color-secondary-100)]">answers</span>
             </h2>
             <p className="text-xl text-white/90">
               Everything you need to know about working with SageStone Inc
@@ -463,7 +463,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                   value={`item-${index}`}
                   className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-6 hover:border-white/40 transition-colors"
                 >
-                  <AccordionTrigger className="text-white hover:text-[#F5D0FE] hover:no-underline text-left py-6">
+                  <AccordionTrigger className="text-white hover:text-[var(--color-secondary-100)] hover:no-underline text-left py-6">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-white/80 pb-6 leading-relaxed">
@@ -478,7 +478,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             <p className="text-white/80 mb-4">Still have questions?</p>
             <Button 
               onClick={() => onNavigate("contact")}
-              className="bg-white hover:bg-white/90 text-[#4F46E5] font-semibold transition-all hover:scale-105 min-w-[44px] min-h-[44px]"
+              className="bg-white hover:bg-white/90 text-[var(--color-primary-600)] font-semibold transition-all hover:scale-105 min-w-[44px] min-h-[44px]"
               aria-label="Contact us with your questions"
             >
               Talk to our team
@@ -489,7 +489,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* CTA Banner */}
-      <section className="py-20 lg:py-24 bg-gradient-to-r from-[#B14EFF] via-[#8E3AFF] to-[#B14EFF] relative overflow-hidden">
+      <section className="py-20 lg:py-24 bg-gradient-to-r from-[var(--color-primary-400)] via-primary to-[var(--color-primary-400)] relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.05\'%3E%3Ccircle cx=\'30\' cy=\'30\' r=\'2\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]" aria-hidden="true" />
         <div className="relative max-w-4xl mx-auto px-6 text-center">
           <ScrollAnimation animation="fadeInUp">
@@ -503,7 +503,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
               <Button 
                 size="lg"
                 onClick={() => onNavigate("contact")}
-                className="bg-white hover:bg-white/90 text-[#B14EFF] font-semibold transition-all hover:scale-105 min-w-[44px] min-h-[44px]"
+                className="bg-white hover:bg-white/90 text-[var(--color-primary-400)] font-semibold transition-all hover:scale-105 min-w-[44px] min-h-[44px]"
                 aria-label="Start your build"
               >
                 Start your build
@@ -524,10 +524,10 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* SEO Footer Content */}
-      <section className="py-12 bg-[#0A0118] border-t border-[#2A1B3D]">
+      <section className="py-12 bg-[var(--dark-bg)] border-t border-[var(--dark-surface)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
-            <p className="text-sm text-[#C4B8D4]">
+            <p className="text-sm text-[var(--dark-text-muted)]">
               <strong className="text-white">SageStone Inc</strong> — Global BPO agency offering virtual assistants and customer support outsourcing. 
               Specializing in eCommerce customer service, Shopify support specialists, back-office solutions, and remote operations management 
               for growing brands, startups, and property management companies.
