@@ -13,16 +13,16 @@ export function TermsPage({ onNavigate }: TermsPageProps) {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#F3E8FF] via-white to-[#F9F8FB] py-16 lg:py-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-100)] via-white to-muted py-16 lg:py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <Badge className="mb-6 bg-white/90 text-[#8E3AFF] border-[#B14EFF]/30">
+          <Badge className="mb-6 bg-white/90 text-primary border-[var(--color-primary-400)]/30">
             <FileText className="w-3 h-3 mr-1" aria-hidden="true" />
             Terms of Service
           </Badge>
-          <h1 className="text-[#1C1B20] mb-4">
+          <h1 className="text-foreground mb-4">
             Terms of Service
           </h1>
-          <p className="text-[#6D6A73]">
+          <p className="text-muted-foreground">
             Last updated: {lastUpdated}
           </p>
         </div>
@@ -32,11 +32,11 @@ export function TermsPage({ onNavigate }: TermsPageProps) {
       <section className="py-16 lg:py-20">
         <div className="max-w-4xl mx-auto px-6">
           <ScrollAnimation animation="fadeInUp">
-            <Card className="p-8 lg:p-12 border-[#E7E2EE]">
+            <Card className="p-8 lg:p-12 border-border">
               <div className="prose prose-lg max-w-none">
-                <div className="space-y-8 text-[#6D6A73]">
+                <div className="space-y-8 text-muted-foreground">
                   <section>
-                    <h2 className="text-2xl text-[#1C1B20] mb-4">Agreement to Terms</h2>
+                    <h2 className="text-2xl text-foreground mb-4">Agreement to Terms</h2>
                     <p>
                       By accessing or using the services provided by SageStone Inc ("Company," "we," "our," or "us"), 
                       you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of 
@@ -45,7 +45,7 @@ export function TermsPage({ onNavigate }: TermsPageProps) {
                   </section>
 
                   <section>
-                    <h2 className="text-2xl text-[#1C1B20] mb-4">Description of Services</h2>
+                    <h2 className="text-2xl text-foreground mb-4">Description of Services</h2>
                     <p className="mb-4">
                       SageStone Inc provides business process outsourcing (BPO) and virtual operations services, including but not limited to:
                     </p>
@@ -59,7 +59,7 @@ export function TermsPage({ onNavigate }: TermsPageProps) {
                   </section>
 
                   <section>
-                    <h2 className="text-2xl text-[#1C1B20] mb-4">Service Agreements</h2>
+                    <h2 className="text-2xl text-foreground mb-4">Service Agreements</h2>
                     <p>
                       Specific service engagements will be governed by separate service agreements or statements 
                       of work that outline the scope, pricing, deliverables, and other terms specific to your 
@@ -69,7 +69,7 @@ export function TermsPage({ onNavigate }: TermsPageProps) {
                   </section>
 
                   <section>
-                    <h2 className="text-2xl text-[#1C1B20] mb-4">Client Responsibilities</h2>
+                    <h2 className="text-2xl text-foreground mb-4">Client Responsibilities</h2>
                     <p className="mb-4">As a client of SageStone Inc, you agree to:</p>
                     <ul className="list-disc pl-6 space-y-2">
                       <li>Provide accurate and complete information necessary for service delivery</li>
@@ -82,7 +82,7 @@ export function TermsPage({ onNavigate }: TermsPageProps) {
                   </section>
 
                   <section>
-                    <h2 className="text-2xl text-[#1C1B20] mb-4">Payment Terms</h2>
+                    <h2 className="text-2xl text-foreground mb-4">Payment Terms</h2>
                     <p className="mb-4">
                       Payment terms will be specified in your service agreement. Unless otherwise agreed:
                     </p>
@@ -95,7 +95,7 @@ export function TermsPage({ onNavigate }: TermsPageProps) {
                   </section>
 
                   <section>
-                    <h2 className="text-2xl text-[#1C1B20] mb-4">Confidentiality</h2>
+                    <h2 className="text-2xl text-foreground mb-4">Confidentiality</h2>
                     <p className="mb-4">
                       Both parties agree to maintain the confidentiality of any proprietary or confidential 
                       information shared during the course of the engagement. This includes, but is not limited to:
@@ -113,7 +113,7 @@ export function TermsPage({ onNavigate }: TermsPageProps) {
                   </section>
 
                   <section>
-                    <h2 className="text-2xl text-[#1C1B20] mb-4">Intellectual Property</h2>
+                    <h2 className="text-2xl text-foreground mb-4">Intellectual Property</h2>
                     <p>
                       All intellectual property rights in our services, including processes, methodologies, 
                       and proprietary tools, remain the property of SageStone Inc. Work product created 
@@ -123,7 +123,7 @@ export function TermsPage({ onNavigate }: TermsPageProps) {
                   </section>
 
                   <section>
-                    <h2 className="text-2xl text-[#1C1B20] mb-4">Limitation of Liability</h2>
+                    <h2 className="text-2xl text-foreground mb-4">Limitation of Liability</h2>
                     <p className="mb-4">
                       To the maximum extent permitted by applicable law:
                     </p>
@@ -137,7 +137,7 @@ export function TermsPage({ onNavigate }: TermsPageProps) {
                   </section>
 
                   <section>
-                    <h2 className="text-2xl text-[#1C1B20] mb-4">Indemnification</h2>
+                    <h2 className="text-2xl text-foreground mb-4">Indemnification</h2>
                     <p>
                       You agree to indemnify, defend, and hold harmless SageStone Inc, its officers, directors, 
                       employees, and agents from any claims, damages, losses, or expenses (including reasonable 
@@ -147,7 +147,7 @@ export function TermsPage({ onNavigate }: TermsPageProps) {
                   </section>
 
                   <section>
-                    <h2 className="text-2xl text-[#1C1B20] mb-4">Termination</h2>
+                    <h2 className="text-2xl text-foreground mb-4">Termination</h2>
                     <p className="mb-4">
                       Either party may terminate services as follows:
                     </p>
@@ -162,7 +162,7 @@ export function TermsPage({ onNavigate }: TermsPageProps) {
                   </section>
 
                   <section>
-                    <h2 className="text-2xl text-[#1C1B20] mb-4">Dispute Resolution</h2>
+                    <h2 className="text-2xl text-foreground mb-4">Dispute Resolution</h2>
                     <p>
                       Any disputes arising from these Terms or our services shall first be attempted to be 
                       resolved through good-faith negotiation. If negotiation fails, disputes shall be resolved 
@@ -173,7 +173,7 @@ export function TermsPage({ onNavigate }: TermsPageProps) {
                   </section>
 
                   <section>
-                    <h2 className="text-2xl text-[#1C1B20] mb-4">Governing Law</h2>
+                    <h2 className="text-2xl text-foreground mb-4">Governing Law</h2>
                     <p>
                       These Terms shall be governed by and construed in accordance with the laws of the United 
                       States and the state in which SageStone Inc is incorporated, without regard to its 
@@ -182,7 +182,7 @@ export function TermsPage({ onNavigate }: TermsPageProps) {
                   </section>
 
                   <section>
-                    <h2 className="text-2xl text-[#1C1B20] mb-4">Modifications to Terms</h2>
+                    <h2 className="text-2xl text-foreground mb-4">Modifications to Terms</h2>
                     <p>
                       We reserve the right to modify these Terms at any time. Changes will be effective upon 
                       posting to our website. Your continued use of our services following any changes constitutes 
@@ -191,7 +191,7 @@ export function TermsPage({ onNavigate }: TermsPageProps) {
                   </section>
 
                   <section>
-                    <h2 className="text-2xl text-[#1C1B20] mb-4">Severability</h2>
+                    <h2 className="text-2xl text-foreground mb-4">Severability</h2>
                     <p>
                       If any provision of these Terms is found to be unenforceable or invalid, that provision 
                       shall be limited or eliminated to the minimum extent necessary, and the remaining provisions 
@@ -200,7 +200,7 @@ export function TermsPage({ onNavigate }: TermsPageProps) {
                   </section>
 
                   <section>
-                    <h2 className="text-2xl text-[#1C1B20] mb-4">Entire Agreement</h2>
+                    <h2 className="text-2xl text-foreground mb-4">Entire Agreement</h2>
                     <p>
                       These Terms, together with any applicable service agreements, constitute the entire 
                       agreement between you and SageStone Inc regarding our services and supersede all prior 
@@ -209,15 +209,15 @@ export function TermsPage({ onNavigate }: TermsPageProps) {
                   </section>
 
                   <section>
-                    <h2 className="text-2xl text-[#1C1B20] mb-4">Contact Us</h2>
+                    <h2 className="text-2xl text-foreground mb-4">Contact Us</h2>
                     <p className="mb-4">
                       If you have any questions about these Terms of Service, please contact us:
                     </p>
-                    <div className="flex items-center gap-2 p-4 bg-[#F9F8FB] rounded-lg">
-                      <Mail className="w-5 h-5 text-[#8E3AFF]" aria-hidden="true" />
+                    <div className="flex items-center gap-2 p-4 bg-muted rounded-lg">
+                      <Mail className="w-5 h-5 text-primary" aria-hidden="true" />
                       <button
                         onClick={() => onNavigate("contact")}
-                        className="text-[#8E3AFF] hover:underline"
+                        className="text-primary hover:underline"
                       >
                         Contact Us
                       </button>

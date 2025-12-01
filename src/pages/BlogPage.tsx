@@ -122,12 +122,12 @@ export function BlogPage({ onNavigate }: BlogPageProps) {
     return (
       <div className="min-h-screen bg-white">
         {/* Article Header */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-[#F3E8FF] via-white to-[#F9F8FB] py-16 lg:py-24">
+        <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-100)] via-white to-muted py-16 lg:py-24">
           <div className="max-w-4xl mx-auto px-6">
             <ScrollAnimation animation="fadeInUp">
               <button
                 onClick={handleBackToList}
-                className="flex items-center gap-2 text-[#8E3AFF] hover:text-[#B14EFF] mb-6 transition-colors min-h-[44px]"
+                className="flex items-center gap-2 text-primary hover:text-[var(--color-primary-400)] mb-6 transition-colors min-h-[44px]"
                 aria-label="Back to all articles"
               >
                 <ArrowLeft className="w-4 h-4" aria-hidden="true" />
@@ -136,17 +136,17 @@ export function BlogPage({ onNavigate }: BlogPageProps) {
             </ScrollAnimation>
             
             <ScrollAnimation animation="fadeInUp" delay={100}>
-              <Badge className="mb-4 bg-white/90 text-[#8E3AFF] border-[#B14EFF]/30">
+              <Badge className="mb-4 bg-white/90 text-primary border-[var(--color-primary-400)]/30">
                 {selectedPost.category}
               </Badge>
             </ScrollAnimation>
             
             <ScrollAnimation animation="fadeInUp" delay={200}>
-              <h1 className="text-[#1C1B20] mb-6">{selectedPost.title}</h1>
+              <h1 className="text-foreground mb-6">{selectedPost.title}</h1>
             </ScrollAnimation>
             
             <ScrollAnimation animation="fadeInUp" delay={300}>
-              <div className="flex items-center gap-6 text-sm text-[#6D6A73]">
+              <div className="flex items-center gap-6 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
                   <User className="w-4 h-4" aria-hidden="true" />
                   <span>{selectedPost.author}</span>
@@ -178,7 +178,7 @@ export function BlogPage({ onNavigate }: BlogPageProps) {
         <article className="max-w-3xl mx-auto px-6 py-16">
           <ScrollAnimation animation="fadeInUp">
             <div
-              className="prose prose-lg max-w-none text-[#1C1B20]"
+              className="prose prose-lg max-w-none text-foreground"
               dangerouslySetInnerHTML={{ __html: sanitizedContent }}
               style={{
                 lineHeight: "1.8",
@@ -188,11 +188,11 @@ export function BlogPage({ onNavigate }: BlogPageProps) {
 
           {/* Tags */}
           {selectedPost.tags && selectedPost.tags.length > 0 && (
-            <ScrollAnimation animation="fadeInUp" className="mt-12 pt-8 border-t border-[#E7E2EE]">
-              <h4 className="text-[#1C1B20] mb-4">Tags</h4>
+            <ScrollAnimation animation="fadeInUp" className="mt-12 pt-8 border-t border-border">
+              <h4 className="text-foreground mb-4">Tags</h4>
               <div className="flex flex-wrap gap-2">
                 {selectedPost.tags.map((tag) => (
-                  <Badge key={tag} className="bg-[#F3E8FF] text-[#8E3AFF] border-[#B14EFF]/20">
+                  <Badge key={tag} className="bg-[var(--color-primary-100)] text-primary border-[var(--color-primary-400)]/20">
                     {tag}
                   </Badge>
                 ))}
@@ -203,16 +203,16 @@ export function BlogPage({ onNavigate }: BlogPageProps) {
 
         {/* Related Posts */}
         {relatedPosts.length > 0 && (
-          <section className="py-16 bg-[#F9F8FB]">
+          <section className="py-16 bg-muted">
             <div className="max-w-7xl mx-auto px-6">
               <ScrollAnimation animation="fadeInUp">
-                <h2 className="text-[#1C1B20] mb-8 text-center">Related Articles</h2>
+                <h2 className="text-foreground mb-8 text-center">Related Articles</h2>
               </ScrollAnimation>
               <div className="grid md:grid-cols-3 gap-8">
                 {relatedPosts.map((post, index) => (
                   <ScrollAnimation key={post.id} animation="fadeInUp" delay={index * 100}>
                     <Card
-                      className="overflow-hidden border-[#E7E2EE] hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                      className="overflow-hidden border-border hover:shadow-xl transition-all duration-300 cursor-pointer group"
                       onClick={() => handlePostClick(post)}
                     >
                       <div className="relative h-48 overflow-hidden">
@@ -222,16 +222,16 @@ export function BlogPage({ onNavigate }: BlogPageProps) {
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                         <div className="absolute top-4 left-4">
-                          <Badge className="bg-white/90 text-[#8E3AFF] border-0">
+                          <Badge className="bg-white/90 text-primary border-0">
                             {post.category}
                           </Badge>
                         </div>
                       </div>
                       <div className="p-6">
-                        <h4 className="text-[#1C1B20] mb-2 group-hover:text-[#8E3AFF] transition-colors">
+                        <h4 className="text-foreground mb-2 group-hover:text-primary transition-colors">
                           {post.title}
                         </h4>
-                        <p className="text-sm text-[#6D6A73]">{post.readTime}</p>
+                        <p className="text-sm text-muted-foreground">{post.readTime}</p>
                       </div>
                     </Card>
                   </ScrollAnimation>
@@ -252,11 +252,11 @@ export function BlogPage({ onNavigate }: BlogPageProps) {
               </p>
               <Button
                 onClick={() => onNavigate("contact")}
-                className="bg-white !text-[#8E3AFF] hover:bg-white/90 min-w-[44px] min-h-[44px]"
+                className="bg-white !text-primary hover:bg-white/90 min-w-[44px] min-h-[44px]"
                 aria-label="Book a consultation"
               >
-                <span className="text-[#8E3AFF]">Book a Consultation</span>
-                <ArrowRight className="w-4 h-4 ml-2 text-[#8E3AFF]" aria-hidden="true" />
+                <span className="text-primary">Book a Consultation</span>
+                <ArrowRight className="w-4 h-4 ml-2 text-primary" aria-hidden="true" />
               </Button>
             </ScrollAnimation>
           </div>
@@ -268,16 +268,16 @@ export function BlogPage({ onNavigate }: BlogPageProps) {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#F3E8FF] via-white to-[#F9F8FB] py-20 lg:py-28">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-100)] via-white to-muted py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollAnimation animation="fadeInUp" className="max-w-3xl mx-auto text-center">
-            <Badge className="mb-6 bg-white/90 text-[#8E3AFF] border-[#B14EFF]/30">
+            <Badge className="mb-6 bg-white/90 text-primary border-[var(--color-primary-400)]/30">
               Outsourcing Best Practices & Remote Team Management
             </Badge>
-            <h1 className="text-[#1C1B20] mb-6">
+            <h1 className="text-foreground mb-6">
               Insights for <span className="gradient-text">modern operations</span>
             </h1>
-            <p className="text-xl text-[#6D6A73] leading-relaxed mb-8">
+            <p className="text-xl text-muted-foreground leading-relaxed mb-8">
               Expert advice, industry trends, and practical guides for scaling your business operations. 
               Written by Jesel Cura and the SageStone Inc team.
             </p>
@@ -285,14 +285,14 @@ export function BlogPage({ onNavigate }: BlogPageProps) {
             {/* Search Bar */}
             <div className="max-w-md mx-auto relative">
               <label htmlFor="blog-search" className="sr-only">Search articles</label>
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#6D6A73]" aria-hidden="true" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" aria-hidden="true" />
               <input
                 id="blog-search"
                 type="search"
                 placeholder="Search articles..."
                 value={searchQuery}
                 onChange={handleSearchChange}
-                className="w-full pl-12 pr-4 py-3 rounded-lg border border-[#E7E2EE] bg-white focus:outline-none focus:ring-2 focus:ring-[#B14EFF] focus:border-[#B14EFF]"
+                className="w-full pl-12 pr-4 py-3 rounded-lg border border-border bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-400)] focus:border-[var(--color-primary-400)]"
               />
             </div>
           </ScrollAnimation>
@@ -300,7 +300,7 @@ export function BlogPage({ onNavigate }: BlogPageProps) {
       </section>
 
       {/* Categories */}
-      <section className="py-8 border-b border-[#E7E2EE] bg-white sticky top-20 z-40">
+      <section className="py-8 border-b border-border bg-white sticky top-20 z-40">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-wrap gap-3 justify-center">
             {categories.map((category) => (
@@ -309,7 +309,7 @@ export function BlogPage({ onNavigate }: BlogPageProps) {
                 variant={activeCategory === category.name ? "default" : "outline"}
                 className={activeCategory === category.name
                   ? "gradient-bg text-white" 
-                  : "border-[#E7E2EE] text-[#6D6A73] hover:border-[#B14EFF] hover:text-[#8E3AFF]"
+                  : "border-border text-muted-foreground hover:border-[var(--color-primary-400)] hover:text-primary"
                 }
                 size="sm"
                 onClick={() => handleCategoryChange(category.name)}
@@ -328,23 +328,23 @@ export function BlogPage({ onNavigate }: BlogPageProps) {
       {/* Loading State */}
       {loading && (
         <div className="py-20 text-center">
-          <div className="inline-block w-8 h-8 border-4 border-[#B14EFF] border-t-transparent rounded-full animate-spin" />
-          <p className="mt-4 text-[#6D6A73]">Loading articles...</p>
+          <div className="inline-block w-8 h-8 border-4 border-[var(--color-primary-400)] border-t-transparent rounded-full animate-spin" />
+          <p className="mt-4 text-muted-foreground">Loading articles...</p>
         </div>
       )}
 
       {/* Featured Article */}
       {!loading && featuredPost && activeCategory === "All" && !searchQuery && (
-        <section className="py-16 bg-[#F9F8FB]">
+        <section className="py-16 bg-muted">
           <div className="max-w-7xl mx-auto px-6">
             <ScrollAnimation animation="fadeInUp">
-              <Badge className="mb-6 bg-white text-[#8E3AFF] border-[#B14EFF]/30">
+              <Badge className="mb-6 bg-white text-primary border-[var(--color-primary-400)]/30">
                 Featured Article
               </Badge>
             </ScrollAnimation>
             <ScrollAnimation animation="scaleIn" delay={100}>
               <Card
-                className="overflow-hidden border-[#E7E2EE] hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                className="overflow-hidden border-border hover:shadow-2xl transition-all duration-300 cursor-pointer"
                 onClick={() => handlePostClick(featuredPost)}
               >
                 <div className="grid lg:grid-cols-2">
@@ -354,19 +354,19 @@ export function BlogPage({ onNavigate }: BlogPageProps) {
                       alt={featuredPost.title}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1C1B20]/60 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
                     <div className="absolute top-4 left-4">
-                      <Badge className="bg-white/90 text-[#8E3AFF] border-0">
+                      <Badge className="bg-white/90 text-primary border-0">
                         {featuredPost.category}
                       </Badge>
                     </div>
                   </div>
                   <div className="p-8 lg:p-12">
-                    <h2 className="text-[#1C1B20] mb-4">{featuredPost.title}</h2>
-                    <p className="text-lg text-[#6D6A73] mb-6 leading-relaxed">
+                    <h2 className="text-foreground mb-4">{featuredPost.title}</h2>
+                    <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                       {featuredPost.excerpt}
                     </p>
-                    <div className="flex items-center gap-6 mb-6 text-sm text-[#6D6A73]">
+                    <div className="flex items-center gap-6 mb-6 text-sm text-muted-foreground">
                       <div className="flex items-center gap-2">
                         <User className="w-4 h-4" />
                         <span>{featuredPost.author}</span>
@@ -394,11 +394,11 @@ export function BlogPage({ onNavigate }: BlogPageProps) {
           <div className="max-w-7xl mx-auto px-6">
             {posts.length === 0 ? (
               <ScrollAnimation animation="fadeInUp" className="text-center py-12">
-                <p className="text-xl text-[#6D6A73]">No articles found.</p>
+                <p className="text-xl text-muted-foreground">No articles found.</p>
                 {searchQuery && (
                   <Button
                     variant="outline"
-                    className="mt-4 border-[#B14EFF] text-[#8E3AFF]"
+                    className="mt-4 border-[var(--color-primary-400)] text-primary"
                     onClick={() => setSearchQuery("")}
                   >
                     Clear search
@@ -411,7 +411,7 @@ export function BlogPage({ onNavigate }: BlogPageProps) {
                   {displayedPosts.map((post, index) => (
                     <ScrollAnimation key={post.id} animation="fadeInUp" delay={index * 100}>
                       <Card
-                        className="overflow-hidden border-[#E7E2EE] hover:shadow-xl transition-all duration-300 cursor-pointer group h-full"
+                        className="overflow-hidden border-border hover:shadow-xl transition-all duration-300 cursor-pointer group h-full"
                         onClick={() => handlePostClick(post)}
                       >
                         <div className="relative h-48 overflow-hidden">
@@ -421,22 +421,22 @@ export function BlogPage({ onNavigate }: BlogPageProps) {
                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                           />
                           <div className="absolute top-4 left-4">
-                            <Badge className="bg-white/90 text-[#8E3AFF] border-0">
+                            <Badge className="bg-white/90 text-primary border-0">
                               {post.category}
                             </Badge>
                           </div>
                         </div>
 
                         <div className="p-6 flex flex-col flex-1">
-                          <h3 className="text-[#1C1B20] mb-3 group-hover:text-[#8E3AFF] transition-colors">
+                          <h3 className="text-foreground mb-3 group-hover:text-primary transition-colors">
                             {post.title}
                           </h3>
-                          <p className="text-[#6D6A73] mb-4 leading-relaxed flex-1">
+                          <p className="text-muted-foreground mb-4 leading-relaxed flex-1">
                             {post.excerpt}
                           </p>
 
-                          <div className="flex items-center justify-between pt-4 border-t border-[#E7E2EE]">
-                            <div className="flex items-center gap-4 text-sm text-[#6D6A73]">
+                          <div className="flex items-center justify-between pt-4 border-t border-border">
+                            <div className="flex items-center gap-4 text-sm text-muted-foreground">
                               <div className="flex items-center gap-1">
                                 <User className="w-4 h-4" aria-hidden="true" />
                                 <span>{post.author}</span>
@@ -448,7 +448,7 @@ export function BlogPage({ onNavigate }: BlogPageProps) {
                             </div>
                           </div>
 
-                          <button className="mt-4 text-sm text-[#8E3AFF] hover:text-[#B14EFF] flex items-center gap-1 group/btn">
+                          <button className="mt-4 text-sm text-primary hover:text-[var(--color-primary-400)] flex items-center gap-1 group/btn">
                             Read more
                             <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" aria-hidden="true" />
                           </button>
@@ -462,7 +462,7 @@ export function BlogPage({ onNavigate }: BlogPageProps) {
                   <ScrollAnimation animation="fadeInUp" className="text-center mt-12">
                     <Button 
                       variant="outline"
-                      className="border-[#B14EFF] text-[#8E3AFF] hover:bg-[#F3E8FF] min-w-[44px] min-h-[44px]"
+                      className="border-[var(--color-primary-400)] text-primary hover:bg-[var(--color-primary-100)] min-w-[44px] min-h-[44px]"
                       aria-label="Load more articles"
                       onClick={handleLoadMore}
                     >
@@ -497,8 +497,8 @@ export function BlogPage({ onNavigate }: BlogPageProps) {
                 aria-required="true"
                 className="flex-1 px-4 py-3 rounded-lg border-0 bg-white/95 focus:bg-white focus:outline-none focus:ring-2 focus:ring-white/50"
               />
-              <Button type="submit" className="bg-white !text-[#8E3AFF] hover:bg-white/90 min-w-[44px] min-h-[44px]" aria-label="Subscribe to newsletter">
-                <span className="text-[#8E3AFF]">Subscribe</span>
+              <Button type="submit" className="bg-white !text-primary hover:bg-white/90 min-w-[44px] min-h-[44px]" aria-label="Subscribe to newsletter">
+                <span className="text-primary">Subscribe</span>
               </Button>
             </form>
           </ScrollAnimation>
@@ -506,10 +506,10 @@ export function BlogPage({ onNavigate }: BlogPageProps) {
       </section>
 
       {/* SEO Footer */}
-      <section className="py-12 bg-white border-t border-[#E7E2EE]">
+      <section className="py-12 bg-white border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
-            <p className="text-sm text-[#6D6A73]">
+            <p className="text-sm text-muted-foreground">
               <strong>SageStone Inc Blog & Insights:</strong> Expert articles on outsourcing best practices, customer experience tips, 
               remote team management, Shopify support, property management operations, and scaling strategies for growing businesses. 
               Written by Jesel Cura and industry experts.

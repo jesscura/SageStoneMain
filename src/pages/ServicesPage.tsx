@@ -186,22 +186,22 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0A0118]">
+    <div className="min-h-screen bg-[var(--dark-bg)]">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0A0118] via-[#1A0B2E] to-[#0A0118] py-20 lg:py-28">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[var(--dark-bg)] via-[var(--dark-bg-secondary)] to-[var(--dark-bg)] py-20 lg:py-28">
         {/* Animated gradient orbs */}
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-[#B14EFF]/20 rounded-full blur-3xl animate-pulse" aria-hidden="true" />
-        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[#B14EFF]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} aria-hidden="true" />
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-[var(--color-primary-400)]/20 rounded-full blur-3xl animate-pulse" aria-hidden="true" />
+        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[var(--color-primary-400)]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} aria-hidden="true" />
         
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <Badge className="mb-6 bg-[#B14EFF]/10 text-[#B14EFF] border-[#B14EFF]/30">
+            <Badge className="mb-6 bg-[var(--color-primary-400)]/10 text-[var(--color-primary-400)] border-[var(--color-primary-400)]/30">
               Outsourced Operations & Customer Support Services
             </Badge>
             <h1 className="text-white mb-6">
-              Services designed for <span className="text-[#B14EFF]">founders who want to focus on growth</span>
+              Services designed for <span className="text-[var(--color-primary-400)]">founders who want to focus on growth</span>
             </h1>
-            <p className="text-xl text-[#C4B8D4] leading-relaxed">
+            <p className="text-xl text-[var(--dark-text-muted)] leading-relaxed">
               Our services are designed for founders who want to focus on growth while we handle 
               the operations that keep business running smoothly.
             </p>
@@ -210,7 +210,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
       </section>
 
       {/* Services Detail */}
-      <section className="py-20 lg:py-28 bg-[#0A0118]">
+      <section className="py-20 lg:py-28 bg-[var(--dark-bg)]">
         <div className="max-w-7xl mx-auto px-6 space-y-24">
           {services.map((service, index) => (
             <div 
@@ -221,27 +221,27 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
             >
               <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#B14EFF]/20 to-[#8E3AFF]/10 flex items-center justify-center">
-                    <service.icon className="w-7 h-7 text-[#B14EFF]" />
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--color-primary-400)]/20 to-primary/10 flex items-center justify-center">
+                    <service.icon className="w-7 h-7 text-[var(--color-primary-400)]" />
                   </div>
                   <div>
                     <h2 className="text-white">{service.title}</h2>
                   </div>
                 </div>
                 
-                <p className="text-lg text-[#B14EFF] mb-4">
+                <p className="text-lg text-[var(--color-primary-400)] mb-4">
                   {service.tagline}
                 </p>
 
-                <p className="text-lg text-[#C4B8D4] mb-6 leading-relaxed">
+                <p className="text-lg text-[var(--dark-text-muted)] mb-6 leading-relaxed">
                   {service.description}
                 </p>
 
                 <div className="grid grid-cols-2 gap-4 mb-8">
                   {service.features.map((feature, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-[#B14EFF]/20 flex items-center justify-center shrink-0">
-                        <feature.icon className="w-4 h-4 text-[#B14EFF]" />
+                      <div className="w-8 h-8 rounded-lg bg-[var(--color-primary-400)]/20 flex items-center justify-center shrink-0">
+                        <feature.icon className="w-4 h-4 text-[var(--color-primary-400)]" />
                       </div>
                       <span className="text-sm text-white">{feature.text}</span>
                     </div>
@@ -250,16 +250,16 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
 
                 <div className="grid grid-cols-3 gap-4 mb-8">
                   {service.metrics.map((metric, i) => (
-                    <div key={i} className="text-center p-4 rounded-xl bg-[#1A0B2E]/50 border border-[#2A1B3D]">
-                      <div className="text-2xl text-[#B14EFF] font-bold mb-1">{metric.value}</div>
-                      <div className="text-xs text-[#C4B8D4]">{metric.label}</div>
+                    <div key={i} className="text-center p-4 rounded-xl bg-[var(--dark-bg-secondary)]/50 border border-[var(--dark-surface)]">
+                      <div className="text-2xl text-[var(--color-primary-400)] font-bold mb-1">{metric.value}</div>
+                      <div className="text-xs text-[var(--dark-text-muted)]">{metric.label}</div>
                     </div>
                   ))}
                 </div>
 
                 <Button 
                   onClick={() => onNavigate("contact")}
-                  className="bg-[#B14EFF] hover:bg-[#9B3EEF] text-white font-semibold transition-all hover:scale-105 min-w-[44px] min-h-[44px]"
+                  className="bg-[var(--color-primary-400)] hover:bg-primary text-white font-semibold transition-all hover:scale-105 min-w-[44px] min-h-[44px]"
                   aria-label="Get a tailored plan"
                 >
                   Get a Tailored Plan
@@ -268,13 +268,13 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
               </div>
 
               <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                <div className="relative rounded-3xl overflow-hidden border border-[#2A1B3D]">
+                <div className="relative rounded-3xl overflow-hidden border border-[var(--dark-surface)]">
                   <ImageWithFallback
                     src={service.image}
                     alt={service.title}
                     className="w-full aspect-[4/3] object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0118]/80 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--dark-bg)]/80 to-transparent" />
                 </div>
               </div>
             </div>
@@ -283,13 +283,13 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
       </section>
 
       {/* Why Choose SageStone */}
-      <section className="py-20 lg:py-28 bg-gradient-to-b from-[#0A0118] to-[#1A0B2E]">
+      <section className="py-20 lg:py-28 bg-gradient-to-b from-[var(--dark-bg)] to-[var(--dark-bg-secondary)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-white mb-4">
-              Why choose <span className="text-[#B14EFF]">SageStone Inc</span>
+              Why choose <span className="text-[var(--color-primary-400)]">SageStone Inc</span>
             </h2>
-            <p className="text-xl text-[#C4B8D4]">
+            <p className="text-xl text-[var(--dark-text-muted)]">
               More than just outsourcing — a partnership built for your success
             </p>
           </div>
@@ -312,12 +312,12 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
                 description: "Founded by operators with 10 years of experience building global teams."
               }
             ].map((feature, index) => (
-              <Card key={index} className="p-8 bg-[#1A0B2E]/50 border-[#2A1B3D] hover:border-[#B14EFF]/50 transition-colors">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#B14EFF]/20 to-[#8E3AFF]/10 flex items-center justify-center mb-6">
-                  <feature.icon className="w-7 h-7 text-[#B14EFF]" />
+              <Card key={index} className="p-8 bg-[var(--dark-bg-secondary)]/50 border-[var(--dark-surface)] hover:border-[var(--color-primary-400)]/50 transition-colors">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--color-primary-400)]/20 to-primary/10 flex items-center justify-center mb-6">
+                  <feature.icon className="w-7 h-7 text-[var(--color-primary-400)]" />
                 </div>
                 <h4 className="text-white mb-3">{feature.title}</h4>
-                <p className="text-[#C4B8D4] leading-relaxed">{feature.description}</p>
+                <p className="text-[var(--dark-text-muted)] leading-relaxed">{feature.description}</p>
               </Card>
             ))}
           </div>
@@ -325,7 +325,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 lg:py-24 bg-gradient-to-r from-[#B14EFF] via-[#8E3AFF] to-[#B14EFF] relative overflow-hidden">
+      <section className="py-20 lg:py-24 bg-gradient-to-r from-[var(--color-primary-400)] via-primary to-[var(--color-primary-400)] relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.05\'%3E%3Ccircle cx=\'30\' cy=\'30\' r=\'2\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]" aria-hidden="true" />
         <div className="relative max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-white mb-6">
@@ -337,7 +337,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
           <Button 
             size="lg"
             onClick={() => onNavigate("contact")}
-            className="bg-white hover:bg-white/90 text-[#B14EFF] font-semibold transition-all hover:scale-105"
+            className="bg-white hover:bg-white/90 text-[var(--color-primary-400)] font-semibold transition-all hover:scale-105"
           >
             Let's build your remote operations team
             <ArrowRight className="w-4 h-4 ml-2" />
@@ -346,10 +346,10 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
       </section>
 
       {/* SEO Footer */}
-      <section className="py-12 bg-[#0A0118] border-t border-[#2A1B3D]">
+      <section className="py-12 bg-[var(--dark-bg)] border-t border-[var(--dark-surface)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
-            <p className="text-sm text-[#C4B8D4]">
+            <p className="text-sm text-[var(--dark-text-muted)]">
               <strong className="text-white">SageStone Inc BPO Services:</strong> Customer support outsourcing, virtual assistant services, 
               eCommerce customer service, Shopify support specialists, back-office solutions, and remote operations management 
               for Shopify merchants, property managers, startups, and service-based companies.

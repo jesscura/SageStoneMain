@@ -60,16 +60,16 @@ export function CaseStudiesPage({ onNavigate }: CaseStudiesPageProps) {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#F3E8FF] via-white to-[#F9F8FB] py-20 lg:py-28">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-100)] via-white to-muted py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <Badge className="mb-6 bg-white/90 text-[#8E3AFF] border-[#B14EFF]/30">
+            <Badge className="mb-6 bg-white/90 text-primary border-[var(--color-primary-400)]/30">
               BPO Results & Client Success Stories
             </Badge>
-            <h1 className="text-[#1C1B20] mb-6">
+            <h1 className="text-foreground mb-6">
               Real teams. <span className="gradient-text">Real results.</span>
             </h1>
-            <p className="text-xl text-[#6D6A73] leading-relaxed">
+            <p className="text-xl text-muted-foreground leading-relaxed">
               See how Shopify merchants, property managers, and growing companies are scaling smarter with SageStone Inc.
             </p>
           </div>
@@ -80,7 +80,7 @@ export function CaseStudiesPage({ onNavigate }: CaseStudiesPageProps) {
       <section className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 space-y-24">
           {caseStudies.map((study, index) => (
-            <Card key={index} className="overflow-hidden border-[#E7E2EE] shadow-xl">
+            <Card key={index} className="overflow-hidden border-border shadow-xl">
               <div className="grid lg:grid-cols-2">
                 <div className="relative h-64 lg:h-auto">
                   <ImageWithFallback
@@ -88,7 +88,7 @@ export function CaseStudiesPage({ onNavigate }: CaseStudiesPageProps) {
                     alt={study.company}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1C1B20]/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
                   <div className="absolute bottom-6 left-6">
                     <div className="flex items-center gap-3 mb-2">
                       <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
@@ -104,42 +104,42 @@ export function CaseStudiesPage({ onNavigate }: CaseStudiesPageProps) {
 
                 <div className="p-8 lg:p-12">
                   <div className="mb-8">
-                    <h4 className="text-[#8E3AFF] mb-3">The Challenge</h4>
-                    <p className="text-[#6D6A73] leading-relaxed">
+                    <h4 className="text-primary mb-3">The Challenge</h4>
+                    <p className="text-muted-foreground leading-relaxed">
                       {study.challenge}
                     </p>
                   </div>
 
                   <div className="mb-8">
-                    <h4 className="text-[#8E3AFF] mb-3">SageStone Inc Solution</h4>
-                    <p className="text-[#6D6A73] leading-relaxed">
+                    <h4 className="text-primary mb-3">SageStone Inc Solution</h4>
+                    <p className="text-muted-foreground leading-relaxed">
                       {study.solution}
                     </p>
                   </div>
 
                   <div className="mb-8">
-                    <h4 className="text-[#1C1B20] mb-4">The Results</h4>
+                    <h4 className="text-foreground mb-4">The Results</h4>
                     <div className="grid gap-4">
                       {study.results.map((result, i) => (
-                        <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-[#F9F8FB] border border-[#E7E2EE]">
-                          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#B14EFF]/10 to-[#FF72E1]/10 flex items-center justify-center shrink-0">
-                            <result.icon className="w-5 h-5 text-[#8E3AFF]" />
+                        <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-muted border border-border">
+                          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--color-primary-400)]/10 to-accent/10 flex items-center justify-center shrink-0">
+                            <result.icon className="w-5 h-5 text-primary" />
                           </div>
                           <div className="flex-1">
                             <div className="flex items-baseline gap-2 mb-1">
-                              <span className="text-sm text-[#6D6A73]">{result.metric}:</span>
+                              <span className="text-sm text-muted-foreground">{result.metric}:</span>
                               <span className="text-2xl gradient-text">{result.value}</span>
                             </div>
-                            <p className="text-xs text-[#6D6A73]">{result.description}</p>
+                            <p className="text-xs text-muted-foreground">{result.description}</p>
                           </div>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <blockquote className="border-l-4 border-[#B14EFF] pl-6 mb-4">
-                    <p className="text-[#1C1B20] italic leading-relaxed mb-2">"{study.quote}"</p>
-                    <cite className="text-sm text-[#6D6A73] not-italic">— {study.author}</cite>
+                  <blockquote className="border-l-4 border-[var(--color-primary-400)] pl-6 mb-4">
+                    <p className="text-foreground italic leading-relaxed mb-2">"{study.quote}"</p>
+                    <cite className="text-sm text-muted-foreground not-italic">— {study.author}</cite>
                   </blockquote>
                 </div>
               </div>
@@ -161,20 +161,20 @@ export function CaseStudiesPage({ onNavigate }: CaseStudiesPageProps) {
           <Button 
             size="lg"
             onClick={() => onNavigate("contact")}
-            className="bg-white !text-[#8E3AFF] hover:bg-white/90 transition-lift hover-lift min-w-[44px] min-h-[44px]"
+            className="bg-white !text-primary hover:bg-white/90 transition-lift hover-lift min-w-[44px] min-h-[44px]"
             aria-label="Start building your team"
           >
-            <span className="text-[#8E3AFF]">Start your build</span>
-            <ArrowRight className="w-4 h-4 ml-2 text-[#8E3AFF]" aria-hidden="true" />
+            <span className="text-primary">Start your build</span>
+            <ArrowRight className="w-4 h-4 ml-2 text-primary" aria-hidden="true" />
           </Button>
         </div>
       </section>
 
       {/* SEO Footer */}
-      <section className="py-12 bg-white border-t border-[#E7E2EE]">
+      <section className="py-12 bg-white border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
-            <p className="text-sm text-[#6D6A73]">
+            <p className="text-sm text-muted-foreground">
               <strong>SageStone Inc BPO Case Studies:</strong> Real results from eCommerce customer service, Shopify support specialists, 
               property operations management, and customer success outsourcing. See how our clients achieved 42% faster response times, 
               35% cost savings, and 2-week team launches.

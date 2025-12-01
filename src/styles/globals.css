@@ -1,7 +1,33 @@
+/**
+ * globals.css — SageStone Design System
+ * ============================================================================
+ * 
+ * This file is the CANONICAL SOURCE OF TRUTH for the SageStone design system.
+ * 
+ * Overview:
+ *   - Typography: Playfair Display for headings, Inter for body/UI
+ *   - Color Palette: Purple primary (#8E3AFF, #B14EFF) + Pink accent (#FF72E1)
+ *   - Semantic tokens for light/dark mode with CSS custom properties
+ *   - Tailwind v4 integration via @theme inline mappings
+ * 
+ * Color System Architecture:
+ *   1. Raw palette tokens (--color-primary-100 through --color-primary-800)
+ *   2. Semantic tokens (--primary, --accent, --background, --foreground, etc.)
+ *   3. Tailwind utility mappings (via @theme inline)
+ * 
+ * Usage Guidelines:
+ *   - Prefer semantic tokens (var(--primary), var(--accent)) over raw hex values
+ *   - Use Tailwind classes (bg-primary, text-foreground) where possible
+ *   - For dark sections, use the dark mode tokens from tokens.css
+ * 
+ * See DESIGN_SYSTEM_NOTES.md for comprehensive usage documentation.
+ * ============================================================================
+ */
+
 /* Tailwind CSS v4 import */
 @import "tailwindcss";
 
-/* Brand tokens */
+/* Compatibility alias layer (maps legacy tokens to this canonical system) */
 @import './tokens.css';
 
 /* Google Fonts: Inter for body/UI, Playfair Display for headline accents */
@@ -10,7 +36,9 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* SageStone Purple Gradient Design System */
+  /* =========================================================================
+   * SageStone Purple Gradient Design System
+   * ========================================================================= */
   
   /* Typography - Inter for body/UI, Playfair Display for headline accents */
   --font-heading: 'Playfair Display', Georgia, serif;
@@ -196,6 +224,18 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* Dark section colors (for purple/dark themed sections) */
+  --color-dark-bg: var(--dark-bg);
+  --color-dark-bg-secondary: var(--dark-bg-secondary);
+  --color-dark-surface: var(--dark-surface);
+  --color-dark-text: var(--dark-text);
+  --color-dark-text-muted: var(--dark-text-muted);
+  
+  /* Primary palette scale for direct use */
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-500: var(--color-primary-500);
 }
 
 @layer base {

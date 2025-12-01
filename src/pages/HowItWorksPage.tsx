@@ -101,16 +101,16 @@ export function HowItWorksPage({ onNavigate }: HowItWorksPageProps) {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#F3E8FF] via-white to-[#F9F8FB] py-20 lg:py-28">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-100)] via-white to-muted py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <Badge className="mb-6 bg-white/90 text-[#8E3AFF] border-[#B14EFF]/30">
+            <Badge className="mb-6 bg-white/90 text-primary border-[var(--color-primary-400)]/30">
               BPO Onboarding Process & Team Setup
             </Badge>
-            <h1 className="text-[#1C1B20] mb-6">
+            <h1 className="text-foreground mb-6">
               Built for <span className="gradient-text">clarity and speed</span>
             </h1>
-            <p className="text-xl text-[#6D6A73] leading-relaxed mb-8">
+            <p className="text-xl text-muted-foreground leading-relaxed mb-8">
               We've refined our process over hundreds of successful team builds. 
               Here's exactly how we'll get you from first call to fully operational.
             </p>
@@ -131,7 +131,7 @@ export function HowItWorksPage({ onNavigate }: HowItWorksPageProps) {
           {steps.map((step, index) => (
             <div key={index} className="relative">
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute left-[67px] top-32 w-0.5 h-32 bg-gradient-to-b from-[#B14EFF] to-[#E055FF]" />
+                <div className="hidden lg:block absolute left-[67px] top-32 w-0.5 h-32 bg-gradient-to-b from-[var(--color-primary-400)] to-[var(--color-secondary-200)]" />
               )}
               
               <div className="grid lg:grid-cols-[auto,1fr] gap-8">
@@ -139,23 +139,23 @@ export function HowItWorksPage({ onNavigate }: HowItWorksPageProps) {
                   <div className="w-32 h-32 rounded-3xl gradient-bg flex items-center justify-center mb-4 shadow-lg">
                     <step.icon className="w-14 h-14 text-white" />
                   </div>
-                  <Badge className="bg-[#F3E8FF] text-[#8E3AFF] border-[#B14EFF]/20">
+                  <Badge className="bg-[var(--color-primary-100)] text-primary border-[var(--color-primary-400)]/20">
                     {step.timeline}
                   </Badge>
                 </div>
 
-                <Card className="p-8 border-[#E7E2EE] hover:shadow-xl transition-shadow">
+                <Card className="p-8 border-border hover:shadow-xl transition-shadow">
                   <div className="text-6xl gradient-text opacity-20 mb-4">{step.number}</div>
-                  <h3 className="text-[#1C1B20] mb-2">{step.title}</h3>
-                  <p className="text-[#8E3AFF] mb-4">{step.subtitle}</p>
-                  <p className="text-[#6D6A73] mb-6 leading-relaxed">
+                  <h3 className="text-foreground mb-2">{step.title}</h3>
+                  <p className="text-primary mb-4">{step.subtitle}</p>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
                     {step.description}
                   </p>
                   <div className="space-y-3">
                     {step.details.map((detail, i) => (
                       <div key={i} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-[#8E3AFF] shrink-0 mt-0.5" />
-                        <span className="text-[#1C1B20]">{detail}</span>
+                        <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                        <span className="text-foreground">{detail}</span>
                       </div>
                     ))}
                   </div>
@@ -182,25 +182,25 @@ export function HowItWorksPage({ onNavigate }: HowItWorksPageProps) {
       </section>
 
       {/* What You Get */}
-      <section className="py-20 lg:py-28 bg-[#F9F8FB]">
+      <section className="py-20 lg:py-28 bg-muted">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-[#1C1B20] mb-4">
+            <h2 className="text-foreground mb-4">
               What makes SageStone Inc <span className="gradient-text">different</span>
             </h2>
-            <p className="text-xl text-[#6D6A73]">
+            <p className="text-xl text-muted-foreground">
               We build teams that help businesses run smarter, not harder.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="p-8 text-center border-[#E7E2EE] hover:border-[#B14EFF]/30 transition-colors">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#B14EFF]/10 to-[#FF72E1]/10 flex items-center justify-center mx-auto mb-6">
-                  <feature.icon className="w-8 h-8 text-[#8E3AFF]" />
+              <Card key={index} className="p-8 text-center border-border hover:border-[var(--color-primary-400)]/30 transition-colors">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--color-primary-400)]/10 to-accent/10 flex items-center justify-center mx-auto mb-6">
+                  <feature.icon className="w-8 h-8 text-primary" />
                 </div>
-                <h4 className="text-[#1C1B20] mb-3">{feature.title}</h4>
-                <p className="text-[#6D6A73]">{feature.description}</p>
+                <h4 className="text-foreground mb-3">{feature.title}</h4>
+                <p className="text-muted-foreground">{feature.description}</p>
               </Card>
             ))}
           </div>
@@ -213,13 +213,13 @@ export function HowItWorksPage({ onNavigate }: HowItWorksPageProps) {
           <Card className="p-8 gradient-border text-center">
             <div className="flex gap-1 justify-center mb-4" role="img" aria-label="5 star rating">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-[#FF72E1] text-[#FF72E1]" aria-hidden="true" />
+                <Star key={i} className="w-5 h-5 fill-accent text-accent" aria-hidden="true" />
               ))}
             </div>
-            <blockquote className="text-xl text-[#1C1B20] mb-4 leading-relaxed">
+            <blockquote className="text-xl text-foreground mb-4 leading-relaxed">
               "From first call to fully operational in 2 weeks. The team at SageStone has been exceptional. Real accountability."
             </blockquote>
-            <cite className="text-[#6D6A73] not-italic">
+            <cite className="text-muted-foreground not-italic">
               — Priya Sharma, COO at CloudSync
             </cite>
           </Card>
@@ -243,11 +243,11 @@ export function HowItWorksPage({ onNavigate }: HowItWorksPageProps) {
                 <Button 
                   size="lg"
                   onClick={() => onNavigate("contact")}
-                  className="bg-white !text-[#8E3AFF] hover:bg-white/90 transition-lift hover-lift min-w-[44px] min-h-[44px]"
+                  className="bg-white !text-primary hover:bg-white/90 transition-lift hover-lift min-w-[44px] min-h-[44px]"
                   aria-label="Book a free consult"
                 >
-                  <span className="text-[#8E3AFF]">Book a free consult</span>
-                  <ArrowRight className="w-4 h-4 ml-2 text-[#8E3AFF]" aria-hidden="true" />
+                  <span className="text-primary">Book a free consult</span>
+                  <ArrowRight className="w-4 h-4 ml-2 text-primary" aria-hidden="true" />
                 </Button>
                 <Button 
                   size="lg"
@@ -274,10 +274,10 @@ export function HowItWorksPage({ onNavigate }: HowItWorksPageProps) {
       </section>
 
       {/* SEO Footer */}
-      <section className="py-12 bg-white border-t border-[#E7E2EE]">
+      <section className="py-12 bg-white border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
-            <p className="text-sm text-[#6D6A73]">
+            <p className="text-sm text-muted-foreground">
               <strong>SageStone Inc BPO Onboarding Process:</strong> Fast 2-week team setup with discovery, recruitment of trained support specialists, 
               comprehensive onboarding with tool integration and workflow training, plus ongoing optimization and performance reviews for continuous improvement.
             </p>
