@@ -493,17 +493,17 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 lg:py-32 bg-gradient-to-b from-[#0A0118] to-[#1A0B2E]">
+      <section className="py-24 lg:py-32 bg-gradient-to-b from-[#4F46E5] via-[#9B6DCD] to-[#D8B4FE]">
         <div className="max-w-4xl mx-auto px-6">
           <ScrollAnimation animation="fadeInUp" className="text-center mb-16">
-            <Badge className="mb-4 bg-[#00FF88]/10 text-[#00FF88] border-[#00FF88]/20">
+            <Badge className="mb-4 bg-white/20 text-white border-white/30">
               <HelpCircle className="w-3 h-3 mr-1" aria-hidden="true" />
               Frequently Asked Questions
             </Badge>
             <h2 className="text-white mb-4">
-              Got questions? We've got <span className="text-[#00FF88]">answers</span>
+              Got questions? We've got <span className="text-[#F5D0FE]">answers</span>
             </h2>
-            <p className="text-xl text-[#C4B8D4]">
+            <p className="text-xl text-white/90">
               Everything you need to know about working with SageStone Inc
             </p>
           </ScrollAnimation>
@@ -514,12 +514,12 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`}
-                  className="bg-[#1A0B2E]/50 backdrop-blur-sm border border-[#2A1B3D] rounded-xl px-6 hover:border-[#B14EFF]/30 transition-colors"
+                  className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-6 hover:border-white/40 transition-colors"
                 >
-                  <AccordionTrigger className="text-white hover:text-[#00FF88] hover:no-underline text-left py-6">
+                  <AccordionTrigger className="text-white hover:text-[#F5D0FE] hover:no-underline text-left py-6">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-[#C4B8D4] pb-6 leading-relaxed">
+                  <AccordionContent className="text-white/80 pb-6 leading-relaxed">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -528,10 +528,10 @@ export function HomePage({ onNavigate }: HomePageProps) {
           </ScrollAnimation>
 
           <ScrollAnimation animation="fadeInUp" delay={200} className="text-center mt-12">
-            <p className="text-[#C4B8D4] mb-4">Still have questions?</p>
+            <p className="text-white/80 mb-4">Still have questions?</p>
             <Button 
               onClick={() => onNavigate("contact")}
-              className="bg-[#00FF88] hover:bg-[#00DD77] text-[#0A0118] font-semibold transition-all hover:scale-105 min-w-[44px] min-h-[44px]"
+              className="bg-white hover:bg-white/90 text-[#4F46E5] font-semibold transition-all hover:scale-105 min-w-[44px] min-h-[44px]"
               aria-label="Contact us with your questions"
             >
               Talk to our team
