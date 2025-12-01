@@ -1,6 +1,7 @@
 import { Button } from "../components/ui/button";
 import { Badge } from "../components/ui/badge";
 import { Card } from "../components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion";
 import { ScrollAnimation } from "../components/ScrollAnimation";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { 
@@ -17,7 +18,8 @@ import {
   Star,
   Zap,
   Users,
-  Bot
+  Bot,
+  HelpCircle
 } from "lucide-react";
 
 // Hero image - Professional customer support team
@@ -111,6 +113,41 @@ export function HomePage({ onNavigate }: HomePageProps) {
       title: "Service Companies",
       description: "Customer success and admin management",
       icon: Users
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "How much does BPO outsourcing cost?",
+      answer: "SageStone Inc offers flexible pricing starting from $1,299/month for a dedicated team member. Our clients typically save 35% compared to hiring in-house staff. We offer transparent pricing with no hidden fees, and you can scale up or down based on your needs without long-term contracts."
+    },
+    {
+      question: "How quickly can you set up a remote team?",
+      answer: "We can have your dedicated remote team operational within 2 weeks. Our streamlined onboarding process includes training on your specific tools, processes, and brand voice to ensure a seamless integration with your existing workflows."
+    },
+    {
+      question: "What services does SageStone Inc provide?",
+      answer: "We provide comprehensive BPO services including 24/7 customer support (chat, email, voice), virtual assistant services, Shopify and eCommerce management, back-office operations (data entry, billing, reporting), property management support, and workflow automation solutions."
+    },
+    {
+      question: "Do you work with Shopify and eCommerce stores?",
+      answer: "Absolutely! We specialize in Shopify and eCommerce support. Our trained team handles product listings, order management, customer inquiries, returns processing, inventory updates, and store health monitoring. We've helped merchants reduce response times by 42% and increase cart recovery by 28%."
+    },
+    {
+      question: "What industries do you serve?",
+      answer: "We serve eCommerce and Shopify merchants, property management companies, SaaS startups, service-based businesses, growing SMBs, and digital agencies. Our flexible approach allows us to adapt to any industry's unique requirements and challenges."
+    },
+    {
+      question: "How do you ensure quality and maintain brand consistency?",
+      answer: "We invest heavily in training, quality assurance, and continuous improvement. Each team member is trained on your brand voice, processes, and tools. We track CSAT scores, conduct regular audits, and implement feedback loops to maintain high-quality standards. Our average client CSAT improvement is +18%."
+    },
+    {
+      question: "What time zones do you cover?",
+      answer: "With teams in the USA and Philippines, we provide comprehensive coverage across all time zones. We can offer 24/7 support or align with your business hours, depending on your needs. Many of our clients appreciate the follow-the-sun model for continuous coverage."
+    },
+    {
+      question: "How do I get started with SageStone Inc?",
+      answer: "Getting started is simple! Book a free consultation where we'll discuss your needs, challenges, and goals. We'll create a tailored proposal, and once approved, we begin our 2-week onboarding process. You'll have a dedicated account manager throughout your journey with us."
     }
   ];
 
@@ -452,6 +489,55 @@ export function HomePage({ onNavigate }: HomePageProps) {
               </Button>
             </ScrollAnimation>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 lg:py-32 bg-gradient-to-b from-[#4F46E5] via-[#9B6DCD] to-[#D8B4FE]">
+        <div className="max-w-4xl mx-auto px-6">
+          <ScrollAnimation animation="fadeInUp" className="text-center mb-16">
+            <Badge className="mb-4 bg-white/20 text-white border-white/30">
+              <HelpCircle className="w-3 h-3 mr-1" aria-hidden="true" />
+              Frequently Asked Questions
+            </Badge>
+            <h2 className="text-white mb-4">
+              Got questions? We've got <span className="text-[#F5D0FE]">answers</span>
+            </h2>
+            <p className="text-xl text-white/90">
+              Everything you need to know about working with SageStone Inc
+            </p>
+          </ScrollAnimation>
+
+          <ScrollAnimation animation="fadeInUp" delay={100}>
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`}
+                  className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-6 hover:border-white/40 transition-colors"
+                >
+                  <AccordionTrigger className="text-white hover:text-[#F5D0FE] hover:no-underline text-left py-6">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-white/80 pb-6 leading-relaxed">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </ScrollAnimation>
+
+          <ScrollAnimation animation="fadeInUp" delay={200} className="text-center mt-12">
+            <p className="text-white/80 mb-4">Still have questions?</p>
+            <Button 
+              onClick={() => onNavigate("contact")}
+              className="bg-white hover:bg-white/90 text-[#4F46E5] font-semibold transition-all hover:scale-105 min-w-[44px] min-h-[44px]"
+              aria-label="Contact us with your questions"
+            >
+              Talk to our team
+              <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
+            </Button>
+          </ScrollAnimation>
         </div>
       </section>
 
