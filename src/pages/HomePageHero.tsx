@@ -11,16 +11,21 @@ import { Badge } from "../components/ui/badge";
 import { Card } from "../components/ui/card";
 import { ArrowRight, CheckCircle2, Clock, Star, TrendingDown } from "lucide-react";
 
+// Analytics window interface extensions
+interface WindowWithAnalytics {
+  gtag?: (...args: unknown[]) => void;
+  posthog?: { capture: (event: string, props?: Record<string, unknown>) => void };
+}
+
 // Defensive analytics helper
 function track(eventName: string, properties?: Record<string, unknown>): void {
   try {
-    // Check for Google Analytics gtag
-    if (typeof window !== "undefined" && typeof (window as { gtag?: (...args: unknown[]) => void }).gtag === "function") {
-      (window as { gtag: (...args: unknown[]) => void }).gtag("event", eventName, properties);
+    const win = typeof window !== "undefined" ? (window as unknown as WindowWithAnalytics) : null;
+    if (win?.gtag) {
+      win.gtag("event", eventName, properties);
     }
-    // Check for PostHog
-    if (typeof window !== "undefined" && (window as { posthog?: { capture: (event: string, props?: Record<string, unknown>) => void } }).posthog?.capture) {
-      (window as { posthog: { capture: (event: string, props?: Record<string, unknown>) => void } }).posthog.capture(eventName, properties);
+    if (win?.posthog?.capture) {
+      win.posthog.capture(eventName, properties);
     }
   } catch {
     // Silently no-op if analytics aren't configured
