@@ -195,7 +195,7 @@ export function CareersPage({ onNavigate }: CareersPageProps) {
               <ScrollAnimation key={index} animation="fadeInUp" delay={index * 100}>
                 <Card className="p-6 border-border hover:border-[var(--color-primary-400)]/30 hover:shadow-lg transition-all h-full">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-primary-400)]/10 to-accent/10 flex items-center justify-center mb-4">
-                    <benefit.icon className="w-6 h-6 text-primary" aria-hidden="true" />
+                    <benefit.icon className="w-6 h-6 text-white" aria-hidden="true" />
                   </div>
                   <h4 className="text-white mb-2">{benefit.title}</h4>
                   <p className="text-[var(--dark-text-muted)] text-sm">{benefit.description}</p>
@@ -321,8 +321,8 @@ export function CareersPage({ onNavigate }: CareersPageProps) {
               className="bg-[var(--color-primary-400)] !text-white hover:bg-primary/90 transition-lift hover-lift min-w-[44px] min-h-[44px]"
               aria-label="Contact us with your resume"
             >
-              <span className="text-primary">Send Your Resume</span>
-              <ArrowRight className="w-4 h-4 ml-2 text-primary" aria-hidden="true" />
+              <span className="text-white">Send Your Resume</span>
+              <ArrowRight className="w-4 h-4 ml-2 text-white" aria-hidden="true" />
             </Button>
           </ScrollAnimation>
         </div>

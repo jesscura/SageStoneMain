@@ -146,7 +146,7 @@ export function IndustriesPage({ onNavigate }: IndustriesPageProps) {
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
                     <div className="absolute bottom-4 left-4">
                       <div className="w-12 h-12 rounded-xl bg-white/90 backdrop-blur flex items-center justify-center">
-                        <industry.icon className="w-6 h-6 text-primary" aria-hidden="true" />
+                        <industry.icon className="w-6 h-6 text-white" aria-hidden="true" />
                       </div>
                     </div>
                   </div>
@@ -246,8 +246,8 @@ export function IndustriesPage({ onNavigate }: IndustriesPageProps) {
               className="bg-[var(--color-primary-400)] !text-white hover:bg-primary/90 transition-lift hover-lift min-w-[44px] min-h-[44px]"
               aria-label="Contact us to discuss your industry needs"
             >
-              <span className="text-primary">Let's Talk About Your Business</span>
-              <ArrowRight className="w-4 h-4 ml-2 text-primary" aria-hidden="true" />
+              <span className="text-white">Let's Talk About Your Business</span>
+              <ArrowRight className="w-4 h-4 ml-2 text-white" aria-hidden="true" />
             </Button>
           </ScrollAnimation>
         </div>

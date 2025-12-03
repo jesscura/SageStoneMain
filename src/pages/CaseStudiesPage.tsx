@@ -174,8 +174,8 @@ export function CaseStudiesPage({ onNavigate }: CaseStudiesPageProps) {
             className="bg-[var(--color-primary-400)] !text-white hover:bg-primary/90 transition-lift hover-lift min-w-[44px] min-h-[44px]"
             aria-label="Start building your team"
           >
-            <span className="text-primary">Start your build</span>
-            <ArrowRight className="w-4 h-4 ml-2 text-primary" aria-hidden="true" />
+            <span className="text-white">Start your build</span>
+            <ArrowRight className="w-4 h-4 ml-2 text-white" aria-hidden="true" />
           </Button>
         </div>
       </section>
