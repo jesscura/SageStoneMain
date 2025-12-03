@@ -23,6 +23,8 @@ import { Button } from "../components/ui/button";
 import { Badge } from "../components/ui/badge";
 import { Card } from "../components/ui/card";
 import { ArrowRight, CheckCircle2, Clock, Star, TrendingUp, Users } from "lucide-react";
+import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import HeroImage from "../assets/HeroImage.jpg";
 
 // Analytics window interface extensions
 interface WindowWithAnalytics {
@@ -206,24 +208,16 @@ export function HomePageHero({ onPrimaryClick, onSecondaryClick }: HomePageHeroP
               variants={fadeInScale}
               className="relative rounded-3xl overflow-hidden border border-[var(--dark-surface)] bg-gradient-to-br from-[var(--dark-bg-secondary)] via-[var(--dark-bg)] to-[var(--dark-bg-secondary)]"
             >
-              {/* Hero Image Placeholder - tall panel */}
-              <div className="aspect-[4/5] lg:aspect-[3/4] bg-gradient-to-br from-[var(--dark-surface)] to-[var(--dark-bg-secondary)] flex items-center justify-center relative">
+              {/* Hero Image - tall panel */}
+              <div className="aspect-[4/5] lg:aspect-[3/4] relative overflow-hidden">
+                <ImageWithFallback
+                  src={HeroImage}
+                  alt="Intelligent virtual support for your business"
+                  className="w-full h-full object-cover"
+                  eager
+                />
                 {/* Decorative gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--dark-bg)]/90 via-transparent to-transparent" aria-hidden="true" />
-                
-                {/* Placeholder visual - abstract pattern */}
-                <div className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
-                  <div className="w-48 h-48 lg:w-64 lg:h-64 rounded-full bg-gradient-to-br from-[var(--color-primary-400)]/30 to-primary/10 blur-2xl" />
-                </div>
-                
-                {/* Centered icon/visual */}
-                <div className="relative z-10 text-center">
-                  <div className="w-24 h-24 lg:w-32 lg:h-32 mx-auto rounded-2xl bg-[var(--color-primary-400)]/20 backdrop-blur-sm border border-[var(--color-primary-400)]/30 flex items-center justify-center mb-4">
-                    <CheckCircle2 className="w-12 h-12 lg:w-16 lg:h-16 text-[var(--color-primary-400)]" aria-hidden="true" />
-                  </div>
-                  <p className="text-[var(--dark-text-muted)] text-sm lg:text-base font-medium">Virtual Operations</p>
-                  <p className="text-[var(--dark-text-muted)]/60 text-xs lg:text-sm">24/7 Support Ready</p>
-                </div>
               </div>
 
               {/* Glow effect */}
