@@ -188,7 +188,7 @@ export function IndustriesPage({ onNavigate }: IndustriesPageProps) {
       </section>
 
       {/* Why Industry Expertise Matters */}
-      <section className="py-20 lg:py-28 bg-muted">
+      <section className="py-20 lg:py-28 bg-[var(--dark-bg-secondary)]">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollAnimation animation="fadeInUp" className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-white mb-4">
@@ -243,7 +243,7 @@ export function IndustriesPage({ onNavigate }: IndustriesPageProps) {
             <Button
               size="lg"
               onClick={() => onNavigate("contact")}
-              className="bg-white !text-primary hover:bg-white/90 transition-lift hover-lift min-w-[44px] min-h-[44px]"
+              className="bg-[var(--color-primary-400)] !text-white hover:bg-primary/90 transition-lift hover-lift min-w-[44px] min-h-[44px]"
               aria-label="Contact us to discuss your industry needs"
             >
               <span className="text-primary">Let's Talk About Your Business</span>
@@ -254,7 +254,7 @@ export function IndustriesPage({ onNavigate }: IndustriesPageProps) {
       </section>
 
       {/* SEO Footer */}
-      <section className="py-12 bg-white border-t border-border">
+      <section className="py-12 bg-[var(--dark-bg)] border-t border-[var(--dark-surface)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
             <p className="text-sm text-[var(--dark-text-muted)]">

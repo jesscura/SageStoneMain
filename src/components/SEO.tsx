@@ -65,10 +65,10 @@ export function SEO({
     updateMetaTag('og:type', 'website', true);
 
     // Twitter tags
-    updateMetaTag('twitter:title', twitterTitle || ogTitle || title, true);
-    updateMetaTag('twitter:description', twitterDescription || ogDescription || description, true);
-    updateMetaTag('twitter:image', ogImage, true);
-    updateMetaTag('twitter:card', 'summary_large_image', true);
+    updateMetaTag('twitter:title', twitterTitle || ogTitle || title, false);
+    updateMetaTag('twitter:description', twitterDescription || ogDescription || description, false);
+    updateMetaTag('twitter:image', ogImage, false);
+    updateMetaTag('twitter:card', 'summary_large_image', false);
   }, [title, description, keywords, canonical, ogTitle, ogDescription, ogImage, twitterTitle, twitterDescription]);
 
   return null;

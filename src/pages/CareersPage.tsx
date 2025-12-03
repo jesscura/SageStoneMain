@@ -222,7 +222,7 @@ export function CareersPage({ onNavigate }: CareersPageProps) {
             </ScrollAnimation>
 
             <ScrollAnimation animation="fadeInRight">
-              <Badge className="mb-6 bg-white text-primary border-[var(--color-primary-400)]/20">
+              <Badge className="mb-6 bg-[var(--color-primary-400)]/10 text-[var(--color-primary-400)] border-[var(--color-primary-400)]/30">
                 Our Culture
               </Badge>
               <h2 className="text-white mb-6">
@@ -318,7 +318,7 @@ export function CareersPage({ onNavigate }: CareersPageProps) {
             <Button
               size="lg"
               onClick={() => onNavigate("contact")}
-              className="bg-white !text-primary hover:bg-white/90 transition-lift hover-lift min-w-[44px] min-h-[44px]"
+              className="bg-[var(--color-primary-400)] !text-white hover:bg-primary/90 transition-lift hover-lift min-w-[44px] min-h-[44px]"
               aria-label="Contact us with your resume"
             >
               <span className="text-primary">Send Your Resume</span>
@@ -329,7 +329,7 @@ export function CareersPage({ onNavigate }: CareersPageProps) {
       </section>
 
       {/* SEO Footer */}
-      <section className="py-12 bg-white border-t border-border">
+      <section className="py-12 bg-[var(--dark-bg)] border-t border-[var(--dark-surface)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
             <p className="text-sm text-[var(--dark-text-muted)]">

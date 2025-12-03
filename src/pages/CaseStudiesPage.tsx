@@ -171,7 +171,7 @@ export function CaseStudiesPage({ onNavigate }: CaseStudiesPageProps) {
           <Button 
             size="lg"
             onClick={() => onNavigate("contact")}
-            className="bg-white !text-primary hover:bg-white/90 transition-lift hover-lift min-w-[44px] min-h-[44px]"
+            className="bg-[var(--color-primary-400)] !text-white hover:bg-primary/90 transition-lift hover-lift min-w-[44px] min-h-[44px]"
             aria-label="Start building your team"
           >
             <span className="text-primary">Start your build</span>
@@ -181,7 +181,7 @@ export function CaseStudiesPage({ onNavigate }: CaseStudiesPageProps) {
       </section>
 
       {/* SEO Footer */}
-      <section className="py-12 bg-white border-t border-border">
+      <section className="py-12 bg-[var(--dark-bg)] border-t border-[var(--dark-surface)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
             <p className="text-sm text-[var(--dark-text-muted)]">
