@@ -232,9 +232,17 @@ export function HomePage({ onNavigate }: HomePageProps) {
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{ backgroundColor: `${service.color}20` }}><service.icon className="w-6 h-6" style={{ color: service.color }} aria-hidden="true" /></div>
                     <h3 className="text-white mb-2">{service.title}</h3>
                     <p className="text-sm text-[var(--dark-text-muted)] mb-4">{service.description}</p>
-                    <button onClick={() => onNavigate(service.page)} className="text-sm text-[var(--color-primary-400)] hover:text-primary flex items-center gap-1 group/btn min-w-[44px] min-h-[44px]" aria-label={`Learn more about ${service.title}`}>
+                    <a
+                      href={`/${service.page}`}
+                      onClick={(event) => {
+                        event.preventDefault();
+                        onNavigate(service.page);
+                      }}
+                      className="text-sm text-[var(--color-primary-400)] hover:text-primary flex items-center gap-1 group/btn min-w-[44px] min-h-[44px]"
+                      aria-label={`Learn more about ${service.title}`}
+                    >
                       Get a Tailored Plan <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" aria-hidden="true" />
-                    </button>
+                    </a>
                   </Card>
                 </ScrollAnimation>
               ))}
