@@ -284,17 +284,45 @@ function createFaqSchema(service: ServiceConfig) {
 export function ServiceDetailPage({ slug, onNavigate }: ServiceDetailPageProps) {
   const service = services[slug] || services["virtual-assistant-services"];
 
+  const normalizeSiteUrl = (url: string) =>
+    url.replace(/^https:\/\/www\.sagestoneinc\.com\/(.+)\/$/, "https://www.sagestoneinc.com/$1");
+
+  const normalizeStructuredDataUrls = <T,>(value: T): T => {
+    if (typeof value === "string") {
+      return normalizeSiteUrl(value) as T;
+    }
+
+    if (Array.isArray(value)) {
+      return value.map((item) => normalizeStructuredDataUrls(item)) as T;
+    }
+
+    if (value && typeof value === "object") {
+      return Object.fromEntries(
+        Object.entries(value).map(([key, nestedValue]) => [key, normalizeStructuredDataUrls(nestedValue)])
+      ) as T;
+    }
+
+    return value;
+  };
+
+  const canonicalUrl = `https://www.sagestoneinc.com/${service.slug}`;
+  const structuredData = normalizeStructuredDataUrls([
+    createServiceSchema(service),
+    createBreadcrumbSchema(service),
+    createFaqSchema(service),
+  ]);
+
   return (
     <>
       <SEO
         title={service.metaTitle}
         description={service.metaDescription}
-        canonical={`https://www.sagestoneinc.com/${service.slug}/`}
+        canonical={canonicalUrl}
         ogTitle={service.metaTitle}
         ogDescription={service.metaDescription}
         twitterTitle={service.metaTitle}
         twitterDescription={service.metaDescription}
-        structuredData={[createServiceSchema(service), createBreadcrumbSchema(service), createFaqSchema(service)]}
+        structuredData={structuredData}
       />
 
       <main className="min-h-screen bg-[var(--dark-bg)] text-white">
