@@ -323,7 +323,7 @@ export function ServiceDetailPage({ slug, onNavigate }: ServiceDetailPageProps) 
         <section className="py-20 lg:py-24 bg-[var(--dark-bg)]">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid lg:grid-cols-3 gap-6">
-              {service.sections.map((section, index) => (
+              {service.sections.map((section) => (
                 <Card key={section.title} className="p-6 bg-[var(--dark-bg-secondary)]/60 border-[var(--dark-surface)] h-full">
                   <div className="w-10 h-10 rounded-xl bg-[var(--color-primary-400)]/15 flex items-center justify-center mb-4">
                     <CheckCircle2 className="w-5 h-5 text-[var(--color-primary-400)]" aria-hidden="true" />
