@@ -32,13 +32,6 @@ interface HomePageProps {
 const homepageStructuredData = [
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "SageStone Inc",
-    url: "https://www.sagestoneinc.com",
-    description: "SageStone Inc provides virtual assistant services, customer support, e-commerce support, social media management, web maintenance, and business operations support."
-  },
-  {
-    "@context": "https://schema.org",
     "@type": "WebSite",
     name: "SageStone Inc",
     url: "https://www.sagestoneinc.com"
