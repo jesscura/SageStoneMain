@@ -57,7 +57,8 @@ function AppContent() {
   };
 
   const getCurrentPage = () => {
-    const path = location.pathname;
+    const rawPath = location.pathname;
+    const path = rawPath !== "/" && rawPath.endsWith("/") ? rawPath.slice(0, -1) : rawPath;
     const pageMap: Record<string, string> = {
       "/": "home",
       "/services": "services",
