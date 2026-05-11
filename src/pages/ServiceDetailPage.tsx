@@ -380,14 +380,18 @@ export function ServiceDetailPage({ slug, onNavigate }: ServiceDetailPageProps) 
                 <p className="text-[var(--dark-text-muted)] mb-6">Many teams combine this service with related operations support to cover more of the customer journey and back-office workload.</p>
                 <div className="flex flex-wrap gap-3">
                   {service.related.map((item) => (
-                    <button
+                    <a
                       key={item.page}
-                      onClick={() => onNavigate(item.page)}
+                      href={`/${item.page}`}
+                      onClick={(event) => {
+                        event.preventDefault();
+                        onNavigate(item.page);
+                      }}
                       className="inline-flex items-center gap-2 rounded-full border border-[var(--dark-surface)] px-4 py-3 text-sm text-[var(--color-primary-400)] hover:border-[var(--color-primary-400)] hover:bg-[var(--color-primary-400)]/10 transition-colors min-h-[44px]"
                     >
                       {item.label}
                       <ExternalLink className="w-3 h-3" aria-hidden="true" />
-                    </button>
+                    </a>
                   ))}
                 </div>
               </div>
