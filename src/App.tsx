@@ -4,6 +4,7 @@ import { Navigation } from "./components/Navigation";
 import { Footer } from "./components/Footer";
 import { HomePage } from "./pages/HomePage";
 import { ServicesPage } from "./pages/ServicesPage";
+import { ServiceDetailPage } from "./pages/ServiceDetailPage";
 import { IndustriesPage } from "./pages/IndustriesPage";
 import { HowItWorksPage } from "./pages/HowItWorksPage";
 import { PricingPage } from "./pages/PricingPage";
@@ -33,6 +34,13 @@ function AppContent() {
     const pathMap: Record<string, string> = {
       "home": "/",
       "services": "/services",
+      "virtual-assistant-services": "/virtual-assistant-services",
+      "customer-support-outsourcing": "/customer-support-outsourcing",
+      "ecommerce-virtual-assistant": "/ecommerce-virtual-assistant",
+      "real-estate-virtual-assistant": "/real-estate-virtual-assistant",
+      "social-media-management-services": "/social-media-management-services",
+      "business-operations-support": "/business-operations-support",
+      "web-design-maintenance": "/web-design-maintenance",
       "industries": "/industries",
       "how-it-works": "/howitworks",
       "pricing": "/pricing",
@@ -48,12 +56,19 @@ function AppContent() {
     navigate(pathMap[page] || "/");
   };
 
-  // Determine current page from location
   const getCurrentPage = () => {
-    const path = location.pathname;
+    const rawPath = location.pathname;
+    const path = rawPath !== "/" && rawPath.endsWith("/") ? rawPath.slice(0, -1) : rawPath;
     const pageMap: Record<string, string> = {
       "/": "home",
       "/services": "services",
+      "/virtual-assistant-services": "virtual-assistant-services",
+      "/customer-support-outsourcing": "customer-support-outsourcing",
+      "/ecommerce-virtual-assistant": "ecommerce-virtual-assistant",
+      "/real-estate-virtual-assistant": "real-estate-virtual-assistant",
+      "/social-media-management-services": "social-media-management-services",
+      "/business-operations-support": "business-operations-support",
+      "/web-design-maintenance": "web-design-maintenance",
       "/industries": "industries",
       "/howitworks": "how-it-works",
       "/pricing": "pricing",
@@ -78,6 +93,13 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<HomePage onNavigate={handleNavigate} />} />
         <Route path="/services" element={<ServicesPage onNavigate={handleNavigate} />} />
+        <Route path="/virtual-assistant-services" element={<ServiceDetailPage slug="virtual-assistant-services" onNavigate={handleNavigate} />} />
+        <Route path="/customer-support-outsourcing" element={<ServiceDetailPage slug="customer-support-outsourcing" onNavigate={handleNavigate} />} />
+        <Route path="/ecommerce-virtual-assistant" element={<ServiceDetailPage slug="ecommerce-virtual-assistant" onNavigate={handleNavigate} />} />
+        <Route path="/real-estate-virtual-assistant" element={<ServiceDetailPage slug="real-estate-virtual-assistant" onNavigate={handleNavigate} />} />
+        <Route path="/social-media-management-services" element={<ServiceDetailPage slug="social-media-management-services" onNavigate={handleNavigate} />} />
+        <Route path="/business-operations-support" element={<ServiceDetailPage slug="business-operations-support" onNavigate={handleNavigate} />} />
+        <Route path="/web-design-maintenance" element={<ServiceDetailPage slug="web-design-maintenance" onNavigate={handleNavigate} />} />
         <Route path="/industries" element={<IndustriesPage onNavigate={handleNavigate} />} />
         <Route path="/howitworks" element={<HowItWorksPage onNavigate={handleNavigate} />} />
         <Route path="/pricing" element={<PricingPage onNavigate={handleNavigate} />} />
